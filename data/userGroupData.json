@@ -1,0 +1,20 @@
+{
+  "users": [],
+  "groups": [],
+  "antilink": {},
+  "antibadword": {},
+  "warnings": {},
+  "sudo": [],
+  "welcome": {
+    "120363424570211579@g.us": {
+      "enabled": true,
+      "message": "Welcome {user} to {group}! 🎉",
+      "channelId": "120363161513685998@newsletter"
+    }
+  },
+  "goodbye": {},
+  "chatbot": {
+    "120363424570211579@g.us": true
+  },
+  "autoReaction": true
+}
