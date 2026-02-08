@@ -18,10 +18,7 @@ const genhelp= `
 *• #delete <num_message>*
 *• #sticker*
 *• #tagall*
-*• #sudo*
-*• #setpp*
-*• #mute*
-*• #unmute*
+*•#wheather*
 *• #online*
 *• #compliment*
 *• #translate <text> <lang>*
