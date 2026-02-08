@@ -8,18 +8,18 @@ async function helpCommand(sock, chatId, message) {
 ┃ ✨ Version : ${settings.version || '2.0.0'}
 ┃ 👤 Dev     : ${settings.botOwner || 'MOSTWANTED'}
 ┃ 📳 Contact  : ?????
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+╰━━━━━━━━━━━━━━━━━━╯
 
 🌟 *MENU PRINCIPAL* 🌟
 _Tape #help <Nom section> pour optenir les commandes_
 
-* .Gestion General *
-* .IA*
-* .Downloads et Social*
-* .Jeux *
-══════════════════════
-╭━━━〔 🤖 ${'🔥Black Nova🔥'} 〕━━━╮
-══════════════════════
+*1-Gestion General*
+*2-IA*
+*3-Downloads et Social*
+*4-Jeux*
+
+╭━〔${'🔥Black Nova🔥'} 〕━╮
+═════════════════════
 `;
     try {
         const imagePath = path.join(__dirname, '../assets/bot_image.jpeg');
