@@ -11,11 +11,14 @@ const gamehelp=`
 *• #hangman*
 *• #guess <lettre>*
 *• #answer <réponse>*
+
+
+
 ╭━━〔 ${'🔥Black Nova🔥'} 〕━━╮
 `;
 
  try {
-        const imagePath = path.join(__dirname, '../assets/bot_image.jpeg');
+        const imagePath = path.join(__dirname, '../assets/game.jpg');
         
         if (fs.existsSync(imagePath)) {
             const imageBuffer = fs.readFileSync(imagePath);

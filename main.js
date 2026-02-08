@@ -100,6 +100,7 @@ const helpiaCommand = require('./commands/helpia.js');
 const helpdowCommand= require('./commands/helpdow.js');
 const helpgenCommand= require('./commands/helpgen.js');
 const helpgameCommand= require('./commands/helpgame.js');
+const helpownerCommand=require('./commands/helpowner.js');
 const resetlinkCommand = require('./commands/resetlink');
 const staffCommand = require('./commands/staff');
 const unbanCommand = require('./commands/unban');
@@ -315,11 +316,11 @@ async function handleMessages(sock, messageUpdate, printLog) {
         }
 
         // List of admin commands
-        const adminCommands = ['.mute', '.unmute', '.ban', '.unban', '.promote', '.demote', '.kick', '.tagall', '.tagnotadmin', '.hidetag', '.antilink', '.antitag', '.setgdesc', '.setgname', '.setgpp'];
+        const adminCommands = ['#mute', '#unmute', '#ban', '#unban', '#promote', '#demote', '#kick', '#tagall', '#tagnotadmin', '#hidetag', '#antilink', '#antitag', '#setgdesc', '#setgname', '#setgpp'];
         const isAdminCommand = adminCommands.some(cmd => userMessage.startsWith(cmd));
 
         // List of owner commands
-        const ownerCommands = ['.mode', '.autostatus', '.antidelete', '.cleartmp', '.setpp', '.clearsession', '.areact', '.autoreact', '.autotyping', '.autoread', '.pmblocker'];
+        const ownerCommands = ['#mode', '#autostatus', '#antidelete', '#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
         const isOwnerCommand = ownerCommands.some(cmd => userMessage.startsWith(cmd));
 
         let isSenderAdmin = false;
@@ -332,7 +333,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             isBotAdmin = adminStatus.isBotAdmin;
 
             if (!isBotAdmin) {
-                await sock.sendMessage(chatId, { text: 'Please make the bot an admin to use admin commands.',  }, { quoted: message });
+                await sock.sendMessage(chatId, { text: 'Le bot doit etre admin pour utiliser cette commande.',  }, { quoted: message });
                 return;
             }
 
@@ -346,7 +347,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             ) {
                 if (!isSenderAdmin && !message.key.fromMe) {
                     await sock.sendMessage(chatId, {
-                        text: 'Sorry, only group admins can use this command.',
+                        text: 'Seul les administrateurs peuvent utiliser cette commande.',
                         
                     }, { quoted: message });
                     return;
@@ -357,7 +358,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         // Check owner status for owner commands
         if (isOwnerCommand) {
             if (!message.key.fromMe && !senderIsOwnerOrSudo) {
-                await sock.sendMessage(chatId, { text: '❌ This command is only available for the owner or sudo!' }, { quoted: message });
+                await sock.sendMessage(chatId, { text: '❌ seul le proprietaire peut utiliser ou un utilisateur dans la liste sudo !' }, { quoted: message });
                 return;
             }
         }
@@ -372,7 +373,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (quotedMessage?.stickerMessage) {
                     await simageCommand(sock, quotedMessage, chatId);
                 } else {
-                    await sock.sendMessage(chatId, { text: 'Please reply to a sticker with the .simage command to convert it.',  }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: 'Repond a une sticker avec  #simage pour le convertir.',  }, { quoted: message });
                 }
                 commandExecuted = true;
                 break;
@@ -399,7 +400,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('#ban'):
                 if (!isGroup) {
                     if (!message.key.fromMe && !senderIsSudo) {
-                        await sock.sendMessage(chatId, { text: 'Only owner/sudo can use .ban in private chat.' }, { quoted: message });
+                        await sock.sendMessage(chatId, { text: 'seul le proprietaire/sudo peut utiliser  #unban.' }, { quoted: message });
                         break;
                     }
                 }
@@ -408,7 +409,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('#unban'):
                 if (!isGroup) {
                     if (!message.key.fromMe && !senderIsSudo) {
-                        await sock.sendMessage(chatId, { text: 'Only owner/sudo can use .unban in private chat.' }, { quoted: message });
+                        await sock.sendMessage(chatId, { text: 'seul le proprietaire/sudo peut utiliser  #unban.' }, { quoted: message });
                         break;
                     }
                 }
@@ -424,6 +425,10 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage === '#help gen' || userMessage === '#help general' || userMessage === '#help General' :
                 await helpgenCommand(sock,chatId,message,global.channelLink);
+                commandExecuted = true;
+                break;
+            case userMessage === '#help owner' || userMessage === '#help admin' || userMessage === '#help superadmin' || userMessage === '#admin' :
+                await helpownerCommand(sock,chatId,message,global.channelLink);
                 commandExecuted = true;
                 break;
             case userMessage === '#help social' || userMessage === '#help downloads' || userMessage === '#help Downloads' :
@@ -463,7 +468,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('#mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe && !senderIsOwnerOrSudo) {
-                    await sock.sendMessage(chatId, { text: 'Only bot owner can use this command!',  }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: 'Seul le proprietaire peut utiliser cette commande !',  }, { quoted: message });
                     return;
                 }
                 // Read current data first
@@ -510,8 +515,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage.startsWith('#anticall'):
                 if (!message.key.fromMe && !senderIsOwnerOrSudo) {
-                    await sock.sendMessage(chatId, { text: 'Only owner/sudo can use anticall.' }, { quoted: message });
-                    break;
+                    await sock.sendMessage(chatId, { text: 'Seul le proprietaire ou un utilisateur dans la liste sudo peut utiliser cette commande'});
                 }
                 {
                     const args = userMessage.split(' ').slice(1).join(' ');

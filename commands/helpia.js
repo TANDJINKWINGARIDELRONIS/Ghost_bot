@@ -9,11 +9,13 @@ async function helpiaCommand(sock, chatId, message) {
         ═════════════════
         *• #gpt <question>*
         *• #gemini <question>*
-        ╭━━〔${'🔥Black Nova🔥'}〕━━╮
+
+
+╭━━〔 ${'🔥Black Nova🔥'} 〕━━╮
         `;
 
  try {
-        const imagePath = path.join(__dirname, '../assets/bot_image.jpeg');
+        const imagePath = path.join(__dirname, '../assets/ia_image.jpg');
         
         if (fs.existsSync(imagePath)) {
             const imageBuffer = fs.readFileSync(imagePath);
