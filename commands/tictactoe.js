@@ -11,7 +11,7 @@ async function tictactoeCommand(sock, chatId, senderId, text) {
             [room.game.playerX, room.game.playerO].includes(senderId)
         )) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Vous êtes déjà dans une partie. Tapez *Exit* pour quitter.' 
+                text: '❌ Vous êtes déjà dans une partie. Tapez *exit* pour quitter.' 
             });
             return;
         }
@@ -77,7 +77,7 @@ ${arr.slice(6).join('')}
             if (text) room.name = text;
 
             await sock.sendMessage(chatId, { 
-                text: `⏳ *En attente d’un adversaire*\nTapez *#start ${text || ''}* pour rejoindre !`
+                text: `⏳ *En attente d’un adversaire*\nTapez *start ${text || ''}* pour rejoindre !`
             });
 
             games[room.id] = room;
