@@ -1195,6 +1195,17 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
         }
 
+        sock.ev.on("messages.reaction", async (reactions) => {
+            try {
+                for (const reaction of reactions) {
+                // 🔓 Lance l’extraction quand quelqu’un réagit
+                    await extractCommand(reaction, sock, store);
+                }
+            } catch (err) {
+                console.error("❌ EmoExtract error:", err);
+            }
+        });
+
         // If a command was executed, show typing status after command execution
         if (commandExecuted !== false) {
             // Command was executed, now show typing status after command execution
