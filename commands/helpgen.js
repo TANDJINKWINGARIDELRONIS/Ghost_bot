@@ -4,9 +4,9 @@ const path = require('path');
 
 async function helpgenCommand(sock, chatId, message) {
 const genhelp= `
-══════════════════════
+═══════════════════
 🌐 *COMMANDES GÉNÉRALES*
-══════════════════════
+═══════════════════
 *• #help / .menu*
 *• #ping*
 *• #alive*
@@ -22,6 +22,9 @@ const genhelp= `
 *• #online*
 *• #compliment*
 *• #translate <text> <lang>*
+
+
+
 ╭━━〔${'🔥Black Nova🔥'}〕━━╮
 `;
  try {

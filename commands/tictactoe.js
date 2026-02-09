@@ -11,7 +11,7 @@ async function tictactoeCommand(sock, chatId, senderId, text) {
             [room.game.playerX, room.game.playerO].includes(senderId)
         )) {
             await sock.sendMessage(chatId, { 
-                text: '❌ Vous êtes déjà dans une partie. Tapez *surrender* pour quitter.' 
+                text: '❌ Vous êtes déjà dans une partie. Tapez *Exit* pour quitter.' 
             });
             return;
         }
@@ -55,7 +55,7 @@ ${arr.slice(6).join('')}
 ▢ *Règles :*
 • Alignez 3 symboles verticalement, horizontalement ou en diagonale pour gagner
 • Tapez un numéro (1-9) pour placer votre symbole
-• Tapez *surrender* pour abandonner
+• Tapez *Exit* pour abandonner
 `;
 
             // Envoyer le message une seule fois au groupe
@@ -77,7 +77,7 @@ ${arr.slice(6).join('')}
             if (text) room.name = text;
 
             await sock.sendMessage(chatId, { 
-                text: `⏳ *En attente d’un adversaire*\nTapez *.ttt ${text || ''}* pour rejoindre !`
+                text: `⏳ *En attente d’un adversaire*\nTapez *#start ${text || ''}* pour rejoindre !`
             });
 
             games[room.id] = room;
@@ -158,9 +158,9 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
 
         let gameStatus;
         if (winner) {
-            gameStatus = `🎉 @${winner.split('@')[0]} remporte la partie !`;
+            gameStatus = `🎉 @${winner.split('@')[0]} *remporte la partie !*`;
         } else if (isTie) {
-            gameStatus = `🤝 La partie se termine par un match nul !`;
+            gameStatus = `🤝 *La partie se termine par un match nul !*`;
         } else {
             gameStatus = `🎲 Tour de : @${room.game.currentTurn.split('@')[0]} (${senderId === room.game.playerX ? '❎' : '⭕'})`;
         }
@@ -177,7 +177,7 @@ ${arr.slice(6).join('')}
 ▢ Joueur ❎ : @${room.game.playerX.split('@')[0]}
 ▢ Joueur ⭕ : @${room.game.playerO.split('@')[0]}
 
-${!winner && !isTie ? '• Tapez un numéro (1-9) pour jouer\n• Tapez *surrender* pour abandonner' : ''}
+${!winner && !isTie ? '• Tapez un numéro (1-9) pour jouer\n• Tapez *Exit* pour abandonner' : ''}
 `;
 
         const mentions = [
