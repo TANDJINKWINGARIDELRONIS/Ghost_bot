@@ -10,7 +10,7 @@ async function extractCommand(reaction, sock, store) {
         }
 
         // 🔐 déclenchement uniquement avec 🔓
-        if (reaction.reaction !== "🔓") return;
+        if (reaction.reaction !== "😂" || reaction.reaction !=="🤣") return;
 
         // 👤 qui a réagi
         const reactor =
