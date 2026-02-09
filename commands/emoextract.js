@@ -1,11 +1,11 @@
 const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 
-async function extractCommand(sock,chatId,message) {
+async function extractCommand(sock, chatId, message) {
     // Extract quoted imageMessage or videoMessage from your structure
     const quoted = message.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     const quotedImage = quoted?.imageMessage;
     const quotedVideo = quoted?.videoMessage;
-    const ownerJid = settings.ownerNumber + "@s.whatsapp.net";
+
     if (quotedImage && quotedImage.viewOnce) {
         // Download and send the image
         const stream = await downloadContentFromMessage(quotedImage, 'image');

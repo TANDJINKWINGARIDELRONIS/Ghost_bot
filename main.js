@@ -444,6 +444,9 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await stickerCommand(sock, chatId, message);
                 commandExecuted = true;
                 break;
+            case userMessage === '.🤣'|| userMessage === '.😂' || userMessage === '#show':
+                await extractCommand(sock,chatId,message);
+                break;
             case userMessage.startsWith('#warnings'):
                 const mentionedJidListWarnings = message.message.extendedTextMessage?.contextInfo?.mentionedJid || [];
                 await warningsCommand(sock, chatId, mentionedJidListWarnings);
@@ -850,9 +853,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
             case userMessage === '#extract':
                 await viewOnceCommand(sock, chatId, message);
-                break;
-            case userMessage === '.🤣'|| userMessage === '.😂' :
-                await extractCommand(sock,chatId,message);
                 break;
             case userMessage === '#clearsession' || userMessage === '#clearsesi':
                 await clearSessionCommand(sock, chatId, message);
