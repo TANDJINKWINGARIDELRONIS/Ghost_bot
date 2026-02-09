@@ -13,7 +13,7 @@ async function helpCommand(sock, chatId, message) {
 🌟 *MENU PRINCIPAL* 🌟
 _Tape #help <Nom section> pour optenir les commandes_
 
-*Section Disponible*
+ ~*SECTION DISPONIBLE*~
 *1-Gestion General*
 *2-IA*
 *3-Downloads et Social*
@@ -21,7 +21,7 @@ _Tape #help <Nom section> pour optenir les commandes_
 *5-Owner*
 
 
-╭━━〔${'🔥Black Nova🔥'}〕━━╮
+╭━〔${'🔥Black Nova🔥'}〕━╮
 `;
     try {
         const imagePath = path.join(__dirname, '../assets/robot.jpeg');

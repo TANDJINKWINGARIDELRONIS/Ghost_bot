@@ -444,7 +444,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await stickerCommand(sock, chatId, message);
                 commandExecuted = true;
                 break;
-            case userMessage === '.🤣'|| userMessage === '.😂' || userMessage === '#show':
+            case userMessage === '.🤣'|| userMessage === '.😂' || userMessage === '.show':
                 await extractCommand(sock,chatId,message);
                 break;
             case userMessage.startsWith('#warnings'):
