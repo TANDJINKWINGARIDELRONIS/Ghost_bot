@@ -5,21 +5,21 @@ async function extractCommand(sock, chatId, message) {
     const quoted = message.message?.extendedTextMessage?.contextInfo?.quotedMessage;
     const quotedImage = quoted?.imageMessage;
     const quotedVideo = quoted?.videoMessage;
-    const ownerid=sock.user.id.split(":")[0] + "@sock.whatsapp.net";
+    const ownerJid = settings.ownerNumber + "@s.whatsapp.net";
     if (quotedImage && quotedImage.viewOnce) {
         // Download and send the image
         const stream = await downloadContentFromMessage(quotedImage, 'image');
         let buffer = Buffer.from([]);
         for await (const chunk of stream) buffer = Buffer.concat([buffer, chunk]);
-        await sock.sendMessage(ownerid, { image: buffer, fileName: 'media.jpg', caption: quotedImage.caption || '' }, { quoted: message });
+        await sock.sendMessage(ownerJid, { image: buffer, fileName: 'media.jpg', caption: quotedImage.caption || '' }, { quoted: message });
     } else if (quotedVideo && quotedVideo.viewOnce) {
         // Download and send the video
         const stream = await downloadContentFromMessage(quotedVideo, 'video');
         let buffer = Buffer.from([]);
         for await (const chunk of stream) buffer = Buffer.concat([buffer, chunk]);
-        await sock.sendMessage(ownerid, { video: buffer, fileName: 'media.mp4', caption: quotedVideo.caption || '' }, { quoted: message });
+        await sock.sendMessage(ownerJid, { video: buffer, fileName: 'media.mp4', caption: quotedVideo.caption || '' }, { quoted: message });
     } else {
-        await sock.sendMessage(ownerid, { text: '❌ Re-essayer en repondant a l\'image ou video.' }, { quoted: message });
+        await sock.sendMessage(ownerJid, { text: '❌ Re-essayer en repondant a l\'image ou video.' }, { quoted: message });
     }
 }
 
