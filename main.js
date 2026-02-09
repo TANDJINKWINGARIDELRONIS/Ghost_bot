@@ -321,7 +321,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         const isAdminCommand = adminCommands.some(cmd => userMessage.startsWith(cmd));
 
         // List of owner commands
-        const ownerCommands = ['#mode', '#autostatus', '#antidelete', '#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
+        const ownerCommands = ['#mode', '#autostatus', '#antidelete', '.😂','.🤣','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
         const isOwnerCommand = ownerCommands.some(cmd => userMessage.startsWith(cmd));
 
         let isSenderAdmin = false;
@@ -851,6 +851,9 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '#extract':
                 await viewOnceCommand(sock, chatId, message);
                 break;
+            case userMessage === '.🤣'|| userMessage === '.😂' :
+                await extractCommand(sock,chatId,message);
+                break;
             case userMessage === '#clearsession' || userMessage === '#clearsesi':
                 await clearSessionCommand(sock, chatId, message);
                 break;
@@ -1194,17 +1197,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 commandExecuted = false;
                 break;
         }
-
-        sock.ev.on("messages.reaction", async (reactions) => {
-            try {
-                for (const reaction of reactions) {
-                // 🔓 Lance l’extraction quand quelqu’un réagit
-                    await extractCommand(reaction, sock, store);
-                }
-            } catch (err) {
-                console.error("❌ EmoExtract error:", err);
-            }
-        });
 
         // If a command was executed, show typing status after command execution
         if (commandExecuted !== false) {
