@@ -470,7 +470,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '#settings':
                 await settingsCommand(sock, chatId, message);
                 break;
-            case userMessage === '#predict':
+            case userMessage === '#predict premier league' || userMessage === '#predict premier league' || userMessage === '#predict ligue 1' || userMessage === '#predict liga' || userMessage === "champion league":
                 await predictCommand(sock,chatId,message)
                 break;
             case userMessage.startsWith('#mode'):
