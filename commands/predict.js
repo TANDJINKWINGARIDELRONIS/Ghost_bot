@@ -1,5 +1,6 @@
-const FOOTBALL = "a55174569e0a44248a0a9e02002d456e";
+const axios = require("axios");
 
+const FOOTBALL = "a55174569e0a44248a0a9e02002d456e";
 const URL = "https://api.football-data.org/v4";
 
 const HEADERS = {
@@ -19,15 +20,14 @@ const leagues = {
     "nations league": "NATIONS_LEAGUE"
 };
 
-function predictCommand(homeRank, awayRank, homeForm, awayForm, homeGoals, awayGoals) {
+function calculatePrediction(homeRank, awayRank, homeGoals, awayGoals) {
     let score = 0;
 
     if (homeRank && awayRank) {
         score += (awayRank - homeRank) * 0.4;
     }
 
-    score += (homeForm - awayForm) * 0.3;
-    score += (homeGoals - awayGoals) * 0.3;
+    score += (homeGoals - awayGoals) * 0.6;
 
     if (score > 0.5) {
         return "Victoire probable de l’équipe à domicile 🏠";
@@ -38,4 +38,54 @@ function predictCommand(homeRank, awayRank, homeForm, awayForm, homeGoals, awayG
     }
 }
 
-module.exports = predictCommand;
+module.exports = async function (sock, chatId, message, leagueName) {
+    try {
+
+        const leagueCode = leagues[leagueName.toLowerCase()];
+
+        if (!leagueCode) {
+            return await sock.sendMessage(chatId, {
+                text: "❌ Ligue non reconnue."
+            }, { quoted: message });
+        }
+
+        // 🔥 Récupérer les matchs du jour
+        const response = await axios.get(
+            `${URL}/competitions/${leagueCode}/matches?status=SCHEDULED`,
+            { headers: HEADERS }
+        );
+
+        const matches = response.data.matches;
+
+        if (!matches || matches.length === 0) {
+            return await sock.sendMessage(chatId, {
+                text: "Aucun match programmé actuellement."
+            }, { quoted: message });
+        }
+
+        // On prend le premier match
+        const match = matches[0];
+
+        const homeTeam = match.homeTeam.name;
+        const awayTeam = match.awayTeam.name;
+
+        const homeRank = match.homeTeam.position || 10;
+        const awayRank = match.awayTeam.position || 10;
+
+        const homeGoals = match.score.fullTime.home || 0;
+        const awayGoals = match.score.fullTime.away || 0;
+
+        const prediction = calculatePrediction(homeRank, awayRank, homeGoals, awayGoals);
+
+        const text = `⚽ *${homeTeam}* vs *${awayTeam}*\n\n📊 ${prediction}`;
+
+        await sock.sendMessage(chatId, { text }, { quoted: message });
+
+    } catch (error) {
+        console.error("Erreur prédiction :", error);
+
+        await sock.sendMessage(chatId, {
+            text: "❌ Impossible de récupérer les données du match."
+        }, { quoted: message });
+    }
+};
