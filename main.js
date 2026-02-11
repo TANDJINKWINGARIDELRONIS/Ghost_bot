@@ -152,6 +152,7 @@ const onlineCommand = require('./commands/online');
 const soraCommand = require('./commands/sora');
 const { use } = require('react');
 const { constrainedMemory } = require('process');
+const predictCommand = require('./commands/predict');
 
 // Global settings
 global.packname = settings.packname;
@@ -469,6 +470,8 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '#settings':
                 await settingsCommand(sock, chatId, message);
                 break;
+            case userMessage === '#predict':
+                await predictCommand(sock,chatId,message)
             case userMessage.startsWith('#mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe && !senderIsOwnerOrSudo) {
@@ -643,7 +646,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (guessedLetter) {
                     guessLetter(sock, chatId, guessedLetter);
                 } else {
-                    sock.sendMessage(chatId, { text: 'Please guess a letter using .guess <letter>',  }, { quoted: message });
+                    sock.sendMessage(chatId, { text: 'Please guess a letter using #guess <letter>',  }, { quoted: message });
                 }
                 break;
             case userMessage.startsWith('#trivia'):
@@ -654,7 +657,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (answer) {
                     answerTrivia(sock, chatId, answer);
                 } else {
-                    sock.sendMessage(chatId, { text: 'Please provide an answer using .answer <answer>',  }, { quoted: message });
+                    sock.sendMessage(chatId, { text: 'Please provide an answer using #answer <answer>',  }, { quoted: message });
                 }
                 break;
             case userMessage.startsWith('#compliment'):

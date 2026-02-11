@@ -30,7 +30,7 @@ async function aiCommand(sock, chatId, message) {
                 react: { text: '🤖', key: message.key }
             });
 
-            if (command === '.gpt') {
+            if (command === '#gpt') {
                 // Call the GPT API
                 const response = await axios.get(`https://zellapi.autos/ai/chatbot?text=${encodeURIComponent(query)}`);
                 
@@ -45,7 +45,7 @@ async function aiCommand(sock, chatId, message) {
                 } else {
                     throw new Error('Réponse invalide de l’API');
                 }
-            } else if (command === '.gemini') {
+            } else if (command === '#gemini') {
                 const apis = [
                     `https://vapis.my.id/api/gemini?q=${encodeURIComponent(query)}`,
                     `https://api.siputzx.my.id/api/ai/gemini-pro?content=${encodeURIComponent(query)}`,

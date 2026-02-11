@@ -177,7 +177,7 @@ async function handleChatbotCommand(sock, chatId, message, match) {
 
     await showTyping(sock, chatId);
     return sock.sendMessage(chatId, { 
-        text: '*Commande invalide. Utilisez .chatbot pour voir l’utilisation*',
+        text: '*Commande invalide. Utilisez #chatbot pour voir l’utilisation*',
         quoted: message
     });
 }

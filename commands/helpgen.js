@@ -20,6 +20,8 @@ const genhelp= `
 *• #tagall*
 *•#wheather*
 *• #online*
+*•#news*
+*•#predict*
 *•#pies*
 *• #compliment*
 *• #translate <text> <lang>*

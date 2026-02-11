@@ -48,7 +48,7 @@ const PORT = process.env.PORT || 3000;
 
 // Route de ping
 app.get('/', (req, res) => {
-    res.status(200).send('🤖 Bot MACHINE VB3 est actif');
+    res.status(200).send('🤖 Ghost Bot est actif');
 });
 
 // Démarrage du serveur web
@@ -84,11 +84,11 @@ setInterval(() => {
     }
 }, 30_000)
 
-let phoneNumber = "682441127"
+let phoneNumber = "655562634"
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
-global.botname = "MACHINE VB3"
-global.themeemoji = "•"
+global.botname = "Ghost Bot"
+global.themeemoji = "#"
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
 

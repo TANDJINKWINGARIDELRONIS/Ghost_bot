@@ -1,0 +1,41 @@
+const FOOTBALL = "a55174569e0a44248a0a9e02002d456e";
+
+const URL = "https://api.football-data.org/v4";
+
+const HEADERS = {
+    "X-Auth-Token": FOOTBALL
+};
+
+const leagues = {
+    "premier league": "PL",
+    "la liga": "PD",
+    "serie a": "SA",
+    "bundesliga": "BL1",
+    "ligue 1": "FL1",
+    "champions league": "CL",
+    "europa league": "EL",
+    "world cup": "WC",
+    "can": "AFRICA_CUP_OF_NATIONS",
+    "nations league": "NATIONS_LEAGUE"
+};
+
+function predictCommand(homeRank, awayRank, homeForm, awayForm, homeGoals, awayGoals) {
+    let score = 0;
+
+    if (homeRank && awayRank) {
+        score += (awayRank - homeRank) * 0.4;
+    }
+
+    score += (homeForm - awayForm) * 0.3;
+    score += (homeGoals - awayGoals) * 0.3;
+
+    if (score > 0.5) {
+        return "Victoire probable de l’équipe à domicile 🏠";
+    } else if (score < -0.5) {
+        return "Victoire probable de l’équipe à l’extérieur ✈️";
+    } else {
+        return "Match serré — nul probable 🤝";
+    }
+}
+
+module.exports = predictCommand;
