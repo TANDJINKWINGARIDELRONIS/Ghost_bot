@@ -7,10 +7,10 @@ const gamehelp=`
 ══════════════════════
 🎮 *JEUX*
 ══════════════════════
-*• #tictactoe @user*
-*• #hangman*
-*• #guess <lettre>*
-*• #answer <réponse>*
+*•#tictactoe @user*
+*•#hangman*
+*•#trivia*
+*•#getnum*
 
 
 

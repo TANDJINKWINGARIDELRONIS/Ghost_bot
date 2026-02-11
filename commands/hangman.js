@@ -15,12 +15,12 @@ function startHangman(sock, chatId) {
         maxWrongGuesses: 6,
     };
 
-    sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord}` });
+    sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} . Utilise #guess <lettre> pour proposer une reponse` });
 }
 
 function guessLetter(sock, chatId, letter) {
     if (!hangmanGames[chatId]) {
-        sock.sendMessage(chatId, { text: '❌ Aucune partie en cours. Démarrez une nouvelle partie avec .hangman' });
+        sock.sendMessage(chatId, { text: '❌ Aucune partie en cours. Démarrez une nouvelle partie avec #hangman' });
         return;
     }
 

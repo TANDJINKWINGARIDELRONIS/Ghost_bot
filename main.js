@@ -97,11 +97,11 @@ const characterCommand = require('./commands/character');
 const wastedCommand = require('./commands/wasted');
 const shipCommand = require('./commands/ship');
 const groupInfoCommand = require('./commands/groupinfo');
-const helpiaCommand = require('./commands/helpia.js');
-const helpdowCommand= require('./commands/helpdow.js');
-const helpgenCommand= require('./commands/helpgen.js');
-const helpgameCommand= require('./commands/helpgame.js');
-const helpownerCommand=require('./commands/helpowner.js');
+const helpiaCommand = require('./commands/helpia');
+const helpdowCommand= require('./commands/helpdow');
+const helpgenCommand= require('./commands/helpgen');
+const helpgameCommand= require('./commands/helpgame');
+const helpownerCommand=require('./commands/helpowner');
 const resetlinkCommand = require('./commands/resetlink');
 const staffCommand = require('./commands/staff');
 const unbanCommand = require('./commands/unban');
@@ -153,7 +153,7 @@ const soraCommand = require('./commands/sora');
 const { use } = require('react');
 const { constrainedMemory } = require('process');
 const predictCommand = require('./commands/predict');
-
+const {startgame,guessNumber,exitgame} = require('./commands/getnumber')
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
@@ -470,8 +470,24 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '#settings':
                 await settingsCommand(sock, chatId, message);
                 break;
-            case userMessage === '#predict premier league' || userMessage === '#predict premier league' || userMessage === '#predict ligue 1' || userMessage === '#predict liga' || userMessage === "champion league":
+            case userMessage === '#predict':
                 await predictCommand(sock,chatId,message)
+                break;
+            case userMessage === '#getnum':
+                await startgame(sock, chatId, message);
+                break;
+            case userMessage.startsWith('#is'):
+                const guessedNumber = userMessage.split(' ')[1];
+                if (guessedNumber) {
+                    guessNumber(sock, chatId, message, Number(guessedNumber)); // on envoie message + nombre
+                } else {
+                    sock.sendMessage(chatId, { 
+                        text: 'Donne ta réponse avec #is <nombre>',  
+                    }, { quoted: message });
+                }
+                break;
+            case userMessage === '#exit':
+                await exitgame(sock, chatId, message);
                 break;
             case userMessage.startsWith('#mode'):
                 // Check if sender is the owner
