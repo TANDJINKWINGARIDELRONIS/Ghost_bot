@@ -472,6 +472,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage === '#predict':
                 await predictCommand(sock,chatId,message)
+                break;
             case userMessage.startsWith('#mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe && !senderIsOwnerOrSudo) {
