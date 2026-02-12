@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const words = ['javascript', 'bot', 'hangman', 'whatsapp', 'nodejs','mostwanted','mballa','uranium','mr robot'];
+const words = ['javascript', 'bot', 'hangman', 'whatsapp', 'nodejs','mostwanted','uranium','mr robot'];
 let hangmanGames = {};
 
 function startHangman(sock, chatId) {
@@ -14,6 +14,49 @@ function startHangman(sock, chatId) {
         wrongGuesses: 0,
         maxWrongGuesses: 6,
     };
+    if (word == 'javascript' || word == 'nodejs') {
+        sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} .
+            *Indice* : 
+                ~je gere le Dom Html 🤫~
+            
+            *Notice :* 
+                Utilise #guess <lettre> pour proposer une reponse` });   
+    }
+    if (word == 'Bot') {
+        sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} .
+            *Indice* : 
+                ~C'est mon nom 😏~
+            
+            *Notice :* 
+                Utilise #guess <lettre> pour proposer une reponse` });   
+    }
+    if (word == 'hangman') {
+        sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} .
+            *Indice* : 
+                ~C'est l'une de mes commandes 🫠~
+            
+            *Notice :* 
+                Utilise #guess <lettre> pour proposer une reponse` });   
+    }
+    if (word == 'whatsapp') {
+        sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} .
+            *Indice* : 
+                ~Application Mobile 😴~
+            
+            *Notice :* 
+                Utilise #guess <lettre> pour proposer une reponse` });   
+    }
+    if (word == 'mr robot') {
+        sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} .
+            *Indice* : 
+                ~J'ai des circuits integrés😈~
+            
+            *Notice :* 
+                Utilise #guess <lettre> pour proposer une reponse` });   
+    }
+    
+
+
 
     sock.sendMessage(chatId, { text: `🎮 Partie commencée ! Le mot est : ${maskedWord} . Utilise #guess <lettre> pour proposer une reponse` });
 }

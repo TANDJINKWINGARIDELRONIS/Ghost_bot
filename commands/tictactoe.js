@@ -40,6 +40,15 @@ async function tictactoeCommand(sock, chatId, senderId, text) {
                 '7': '7️⃣',
                 '8': '8️⃣',
                 '9': '9️⃣',
+                '10':'🔟',
+                '11':'1️⃣1️⃣',
+                '12':'1️⃣2️⃣',
+                '13':'1️⃣3️⃣',
+                '14':'1️⃣4️⃣',
+                '15':'1️⃣5️⃣',
+                '16':'1️⃣6️⃣',
+                '17':'1️⃣7️⃣',
+                '18':'1️⃣8️⃣',
             }[v]));
 
             const str = `
@@ -49,12 +58,15 @@ En attente du tour de @${room.game.currentTurn.split('@')[0]}...
 
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
-${arr.slice(6).join('')}
+${arr.slice(6, 9).join('')}
+${arr.slice(9, 12).join('')}
+${arr.slice(12, 15).join('')}
+${arr.slice(15, 18).join('')}
 
 ▢ *ID de la salle :* ${room.id}
 ▢ *Règles :*
 • Alignez 3 symboles verticalement, horizontalement ou en diagonale pour gagner
-• Tapez un numéro (1-9) pour placer votre symbole
+• Tapez un numéro (1-18) pour placer votre symbole
 • Tapez *Exit* pour abandonner
 `;
 
@@ -104,7 +116,8 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
 
         const isSurrender = /^(surrender|give up)$/i.test(text);
         
-        if (!isSurrender && !/^[1-9]$/.test(text)) return;
+        // ⚡ CORRECTION Regex pour 1-18
+        if (!isSurrender && !/^(1[0-8]|[1-9])$/.test(text.trim())) return;
 
         // Autoriser l’abandon à tout moment
         if (senderId !== room.game.currentTurn && !isSurrender) {
@@ -127,7 +140,8 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
         }
 
         let winner = room.game.winner;
-        let isTie = room.game.turns === 9;
+        // ⚡ CORRECTION Tie pour 18 cases
+        let isTie = room.game.turns === 18;
 
         const arr = room.game.render().map(v => ({
             'X': '❎',
@@ -141,6 +155,15 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
             '7': '7️⃣',
             '8': '8️⃣',
             '9': '9️⃣',
+            '10':'🔟',
+            '11':'1️⃣1️⃣',
+            '12':'1️⃣2️⃣',
+            '13':'1️⃣3️⃣',
+            '14':'1️⃣4️⃣',
+            '15':'1️⃣5️⃣',
+            '16':'1️⃣6️⃣',
+            '17':'1️⃣7️⃣',
+            '18':'1️⃣8️⃣',
         }[v]));
 
         if (isSurrender) {
@@ -162,7 +185,8 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
         } else if (isTie) {
             gameStatus = `🤝 *La partie se termine par un match nul !*`;
         } else {
-            gameStatus = `🎲 Tour de : @${room.game.currentTurn.split('@')[0]} (${senderId === room.game.playerX ? '❎' : '⭕'})`;
+            // ⚡ CORRECTION symbole du joueur courant
+            gameStatus = `🎲 Tour de : @${room.game.currentTurn.split('@')[0]} (${room.game.currentTurn === room.game.playerX ? '❎' : '⭕'})`;
         }
 
         const str = `
@@ -172,12 +196,15 @@ ${gameStatus}
 
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
-${arr.slice(6).join('')}
+${arr.slice(6, 9).join('')}
+${arr.slice(9, 12).join('')}
+${arr.slice(12, 15).join('')}
+${arr.slice(15, 18).join('')}
 
 ▢ Joueur ❎ : @${room.game.playerX.split('@')[0]}
 ▢ Joueur ⭕ : @${room.game.playerO.split('@')[0]}
 
-${!winner && !isTie ? '• Tapez un numéro (1-9) pour jouer\n• Tapez *#surrender* pour abandonner' : ''}
+${!winner && !isTie ? '• Tapez un numéro (1-18) pour jouer\n• Tapez *#surrender* pour abandonner' : ''}
 `;
 
         const mentions = [

@@ -9,7 +9,7 @@ function startgame(sock, chatId, message) {
     // 🎯 Lancer une partie
     if (games[chatId]) {
         sock.sendMessage(chatId, {
-            text: "⚠️ Une partie est déjà en cours dans ce chat. Le lanceur doit faire #Quit pour l'arrêter"
+            text: "⚠️ Une partie est déjà en cours dans ce chat. Le lanceur doit faire #exit pour l'arrêter"
         }, { quoted: message });
         return;
     }
