@@ -67,7 +67,7 @@ ${arr.slice(15, 18).join('')}
 ▢ *Règles :*
 • Alignez 3 symboles verticalement, horizontalement ou en diagonale pour gagner
 • Tapez un numéro (1-18) pour placer votre symbole
-• Tapez *Exit* pour abandonner
+• Tapez *#surrender* pour abandonner
 `;
 
             // Envoyer le message une seule fois au groupe
@@ -89,7 +89,7 @@ ${arr.slice(15, 18).join('')}
             if (text) room.name = text;
 
             await sock.sendMessage(chatId, { 
-                text: `⏳ *En attente d’un adversaire*\nTapez *#ttt ${text || ''}* pour rejoindre !`
+                text: `⏳ *En attente d’un adversaire*\nTapez *#ttt${text || ''}* pour rejoindre !`
             });
 
             games[room.id] = room;
