@@ -3,6 +3,7 @@ const TicTacToe = require('../lib/tictactoe');
 // Stocker les parties globalement
 const games = {};
 
+// --- Commande pour démarrer ou rejoindre une partie ---
 async function tictactoeCommand(sock, chatId, senderId, text) {
     try {
         // Vérifier si le joueur est déjà dans une partie
@@ -28,40 +29,14 @@ async function tictactoeCommand(sock, chatId, senderId, text) {
             room.game.playerO = senderId;
             room.state = 'PLAYING';
 
-            const arr = room.game.render().map(v => ({
-                'X': '❎',
-                'O': '⭕',
-                '1': '1️⃣',
-                '2': '2️⃣',
-                '3': '3️⃣',
-                '4': '4️⃣',
-                '5': '5️⃣',
-                '6': '6️⃣',
-                '7': '7️⃣',
-                '8': '8️⃣',
-                '9': '9️⃣',
-                '10':'🔟',
-                '11':'1️⃣1️⃣',
-                '12':'1️⃣2️⃣',
-                '13':'1️⃣3️⃣',
-                '14':'1️⃣4️⃣',
-                '15':'1️⃣5️⃣',
-                '16':'1️⃣6️⃣',
-                '17':'1️⃣7️⃣',
-                '18':'1️⃣8️⃣',
-            }[v]));
+            const boardStr = renderTicTacToeBoard(room);
 
             const str = `
 🎮 *Partie TicTacToe commencée !*
 
 En attente du tour de @${room.game.currentTurn.split('@')[0]}...
 
-${arr.slice(0, 3).join('')}
-${arr.slice(3, 6).join('')}
-${arr.slice(6, 9).join('')}
-${arr.slice(9, 12).join('')}
-${arr.slice(12, 15).join('')}
-${arr.slice(15, 18).join('')}
+${boardStr}
 
 ▢ *ID de la salle :* ${room.id}
 ▢ *Règles :*
@@ -70,7 +45,6 @@ ${arr.slice(15, 18).join('')}
 • Tapez *#surrender* pour abandonner
 `;
 
-            // Envoyer le message une seule fois au groupe
             await sock.sendMessage(chatId, { 
                 text: str,
                 mentions: [room.game.currentTurn, room.game.playerX, room.game.playerO]
@@ -103,6 +77,7 @@ ${arr.slice(15, 18).join('')}
     }
 }
 
+// --- Fonction pour gérer les coups et afficher le plateau ---
 async function handleTicTacToeMove(sock, chatId, senderId, text) {
     try {
         // Trouver la partie du joueur
@@ -116,10 +91,10 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
 
         const isSurrender = /^(surrender|give up)$/i.test(text);
         
-        // ⚡ CORRECTION Regex pour 1-18
+        // Vérifier si le numéro est valide 1-18
         if (!isSurrender && !/^(1[0-8]|[1-9])$/.test(text.trim())) return;
 
-        // Autoriser l’abandon à tout moment
+        // Vérifier que c'est bien le tour du joueur
         if (senderId !== room.game.currentTurn && !isSurrender) {
             await sock.sendMessage(chatId, { 
                 text: '❌ Ce n’est pas votre tour !' 
@@ -140,34 +115,9 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
         }
 
         let winner = room.game.winner;
-        // ⚡ CORRECTION Tie pour 18 cases
         let isTie = room.game.turns === 18;
 
-        const arr = room.game.render().map(v => ({
-            'X': '❎',
-            'O': '⭕',
-            '1': '1️⃣',
-            '2': '2️⃣',
-            '3': '3️⃣',
-            '4': '4️⃣',
-            '5': '5️⃣',
-            '6': '6️⃣',
-            '7': '7️⃣',
-            '8': '8️⃣',
-            '9': '9️⃣',
-            '10':'🔟',
-            '11':'1️⃣1️⃣',
-            '12':'1️⃣2️⃣',
-            '13':'1️⃣3️⃣',
-            '14':'1️⃣4️⃣',
-            '15':'1️⃣5️⃣',
-            '16':'1️⃣6️⃣',
-            '17':'1️⃣7️⃣',
-            '18':'1️⃣8️⃣',
-        }[v]));
-
         if (isSurrender) {
-            // Définir le gagnant comme l’adversaire
             winner = senderId === room.game.playerX ? room.game.playerO : room.game.playerX;
             
             await sock.sendMessage(chatId, { 
@@ -185,21 +135,17 @@ async function handleTicTacToeMove(sock, chatId, senderId, text) {
         } else if (isTie) {
             gameStatus = `🤝 *La partie se termine par un match nul !*`;
         } else {
-            // ⚡ CORRECTION symbole du joueur courant
             gameStatus = `🎲 Tour de : @${room.game.currentTurn.split('@')[0]} (${room.game.currentTurn === room.game.playerX ? '❎' : '⭕'})`;
         }
+
+        const boardStr = renderTicTacToeBoard(room);
 
         const str = `
 🎮 *Partie TicTacToe*
 
 ${gameStatus}
 
-${arr.slice(0, 3).join('')}
-${arr.slice(3, 6).join('')}
-${arr.slice(6, 9).join('')}
-${arr.slice(9, 12).join('')}
-${arr.slice(12, 15).join('')}
-${arr.slice(15, 18).join('')}
+${boardStr}
 
 ▢ Joueur ❎ : @${room.game.playerX.split('@')[0]}
 ▢ Joueur ⭕ : @${room.game.playerO.split('@')[0]}
@@ -213,25 +159,36 @@ ${!winner && !isTie ? '• Tapez un numéro (1-18) pour jouer\n• Tapez *#surre
             ...(winner ? [winner] : [room.game.currentTurn])
         ];
 
-        await sock.sendMessage(room.x, { 
-            text: str,
-            mentions: mentions
-        });
+        await sock.sendMessage(room.x, { text: str, mentions });
+        if (room.x !== room.o) await sock.sendMessage(room.o, { text: str, mentions });
 
-        if (room.x !== room.o) {
-            await sock.sendMessage(room.o, { 
-                text: str,
-                mentions: mentions
-            });
-        }
-
-        if (winner || isTie) {
-            delete games[room.id];
-        }
+        if (winner || isTie) delete games[room.id];
 
     } catch (error) {
         console.error('Erreur dans le coup tictactoe :', error);
     }
+}
+
+// --- Fonction pour générer le plateau 18 cases avec emojis ---
+function renderTicTacToeBoard(room) {
+    const board = room.game.render(); // 18 cases
+    const arr = board.map(v => {
+        if (v === 'X') return '❎';
+        if (v === 'O') return '⭕';
+
+        const n = Number(v);
+        if (n >= 1 && n <= 9) return `${n}️⃣`;
+        if (n === 10) return '🔟';
+        if (n > 10 && n <= 18) return `1️⃣${n - 10}️⃣`;
+        return v;
+    });
+
+    const rows = [];
+    for (let i = 0; i < 18; i += 3) {
+        rows.push(arr.slice(i, i + 3).join(''));
+    }
+
+    return rows.join('\n');
 }
 
 module.exports = {

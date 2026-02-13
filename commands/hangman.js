@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const words = ['javascript', 'bot', 'hangman', 'whatsapp', 'nodejs','mostwanted','uranium','mr robot'];
+const words = ['javascript', 'bot', 'hangman', 'whatsapp', 'nodejs','mostwanted','uranium','robot'];
 let hangmanGames = {};
 
 function startHangman(sock, chatId) {
@@ -23,7 +23,7 @@ function startHangman(sock, chatId) {
         'bot': "C'est mon nom 😏",
         'hangman': "C'est l'une de mes commandes 🫠",
         'whatsapp': 'Application Mobile 😴',
-        'mr robot': "J'ai des circuits integrés😈"
+        'robot': "J'ai des circuits integrés😈"
     };
 
     const key = word.toLowerCase(); // gérer la casse
