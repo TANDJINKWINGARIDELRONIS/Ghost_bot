@@ -497,7 +497,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await stickerCommand(sock, chatId, message);
                 commandExecuted = true;
                 break;
-            case userMessage === '#'|| userMessage === '//' :
+            case userMessage === '#':
                 await extractCommand(sock,chatId,message);
                 break;
             case userMessage.startsWith('#warnings'):
@@ -523,7 +523,14 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await settingsCommand(sock, chatId, message);
                 break;
             case userMessage === '#predict':
-                await predictCommand(sock,chatId,message)
+                const leagueName = userMessage.split(' ')[1];
+                if (leagueName) {
+                    predictCommand(sock, chatId, message, leagueName); 
+                } else {
+                    sock.sendMessage(chatId, { 
+                        text: 'Veuillez merntionner le championnat\n Exemple #predict ligue 1',  
+                    }, { quoted: message });
+                }
                 break;
             case userMessage === '#getnum':
                 await startgame(sock, chatId, message);
