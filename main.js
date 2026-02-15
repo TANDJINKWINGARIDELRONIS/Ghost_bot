@@ -417,6 +417,58 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 }
                 await unbanCommand(sock, chatId, message);
                 break;
+            case userMessage.startsWith('#multijoueur') :
+
+                if(!message.message.extendedTextMessage || 
+                !message.message.extendedTextMessage.contextInfo ||
+                !message.message.extendedTextMessage.contextInfo.mentionedJid){
+
+                    await sock.sendMessage(chatId,{
+                        text:"⚠️ Mentionne 2 ou 3 joueurs\nExemple:\n#multiplayer @A @B"
+                    },{quoted:message});
+                    break;
+                }
+                const mentions = message.message.extendedTextMessage.contextInfo.mentionedJid;
+
+                await wordgame.startWordGame(sock, chatId, message, mentions);
+                break;
+            case userMessage.startsWith("#clue"):
+
+                const clue = userMessage.slice(6).trim();
+
+                if(!clue)
+                    return sock.sendMessage(chatId,{
+                        text:"⚠️ Utilise:\n#clue ton indice"
+                    },{quoted:message});
+
+                await wordgame.giveClue(sock, chatId, sender, clue, message);
+                break;
+
+
+            // ===== GUESS =====
+            case userMessage.startsWith("#guess"):
+
+                const guess = userMessage.split(" ")[1];
+
+                if(!guess)
+                    return sock.sendMessage(chatId,{
+                        text:"⚠️ Utilise:\n#mot"
+                    },{quoted:message});
+
+                await wordgame.guessWord(sock, chatId, sender, guess, message);
+                break;
+
+
+            // ===== SCORE =====
+            case userMessage === "#score":
+                await wordgame.showScore(sock, chatId);
+                break;
+
+
+            // ===== END GAME =====
+            case userMessage === "#end":
+                await wordgame.endGame(sock, chatId);
+                break;
             case userMessage === '#help' || userMessage === '#menu' || userMessage === '#bot' || userMessage === '#list':
                 await helpCommand(sock, chatId, message, global.channelLink);
                 commandExecuted = true;
