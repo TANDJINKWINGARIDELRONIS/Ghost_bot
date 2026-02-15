@@ -322,7 +322,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         const isAdminCommand = adminCommands.some(cmd => userMessage.startsWith(cmd));
 
         // List of owner commands
-        const ownerCommands = ['#mode', '#autostatus', '#antidelete', '.😂','.🤣','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
+        const ownerCommands = ['#mode', '#autostatus', '#antidelete', '//','#','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
         const isOwnerCommand = ownerCommands.some(cmd => userMessage.startsWith(cmd));
 
         let isSenderAdmin = false;
@@ -445,7 +445,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await stickerCommand(sock, chatId, message);
                 commandExecuted = true;
                 break;
-            case userMessage === '#'|| userMessage === '#view' || userMessage === '#show':
+            case userMessage === '#'|| userMessage === '//' :
                 await extractCommand(sock,chatId,message);
                 break;
             case userMessage.startsWith('#warnings'):
