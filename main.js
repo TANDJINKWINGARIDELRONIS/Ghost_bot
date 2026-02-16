@@ -418,58 +418,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 }
                 await unbanCommand(sock, chatId, message);
                 break;
-            case userMessage.startsWith('#multijoueur') :
-
-                if(!message.message.extendedTextMessage || 
-                !message.message.extendedTextMessage.contextInfo ||
-                !message.message.extendedTextMessage.contextInfo.mentionedJid){
-
-                    await sock.sendMessage(chatId,{
-                        text:"⚠️ Mentionne 2 ou 3 joueurs\nExemple:\n#multiplayer @A @B"
-                    },{quoted:message});
-                    break;
-                }
-                const mentions = message.message.extendedTextMessage.contextInfo.mentionedJid;
-
-                await wordgame.startWordGame(sock, chatId, message, mentions);
-                break;
-            case userMessage.startsWith("#clue"):
-
-                const clue = userMessage.slice(6).trim();
-
-                if(!clue)
-                    return sock.sendMessage(chatId,{
-                        text:"⚠️ Utilise:\n#clue ton indice"
-                    },{quoted:message});
-
-                await wordgame.giveClue(sock, chatId, sender, clue, message);
-                break;
-
-
-            // ===== GUESS =====
-            case userMessage.startsWith("#guess"):
-
-                const guess = userMessage.split(" ")[1];
-
-                if(!guess)
-                    return sock.sendMessage(chatId,{
-                        text:"⚠️ Utilise:\n#mot"
-                    },{quoted:message});
-
-                await wordgame.guessWord(sock, chatId, sender, guess, message);
-                break;
-
-
-            // ===== SCORE =====
-            case userMessage === "#score":
-                await wordgame.showScore(sock, chatId);
-                break;
-
-
-            // ===== END GAME =====
-            case userMessage === "#end":
-                await wordgame.endGame(sock, chatId);
-                break;
             case userMessage === '#help' || userMessage === '#menu' || userMessage === '#bot' || userMessage === '#list':
                 await helpCommand(sock, chatId, message, global.channelLink);
                 commandExecuted = true;
@@ -533,8 +481,21 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     }, { quoted: message });
                 }
                 break;
-            case userMessage === '#multiplayer' :
-                await multiplayer(sock,chatId);
+            case userMessage === '#multiplayer'  :  
+                sock.ev.on('messages.upsert', async (m) => {
+                const msg = m.messages[0];
+                if (!msg.message) return;
+
+                    const chatId = msg.key.remoteJid;
+                    const senderId = msg.key.participant || msg.key.remoteJid;
+                    const body = msg.message.conversation || msg.message.extendedTextMessage?.text;
+                    
+                    // Nom du joueur (facultatif)
+                    const pushName = msg.pushName || "Joueur";
+
+                    // Appel du jeu multiplayer
+                    await multiplayerCommand(sock, chatId, senderId, body, pushName);
+                });
                 break;
             case userMessage === '#getnum':
                 await startgame(sock, chatId, message);
