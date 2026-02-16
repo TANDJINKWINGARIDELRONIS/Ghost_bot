@@ -54,3 +54,6 @@ async function execute(sock, msg, args) {
     }
 }
 
+
+module.exports = execute;
+

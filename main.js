@@ -154,7 +154,7 @@ const { use } = require('react');
 const { constrainedMemory } = require('process');
 const predictCommand = require('./commands/predict');
 const {startgame,guessNumber,exitgame} = require('./commands/getnumber')
-const multiplayer = require('./commands/multipayer')
+const execute = require('./commands/multipayer')
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
@@ -385,6 +385,11 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 const mentionedJidListKick = message.message.extendedTextMessage?.contextInfo?.mentionedJid || [];
                 await kickCommand(sock, chatId, senderId, mentionedJidListKick, message);
                 break;
+            case userMessage.startsWith('#undercover') :
+                const args = userMessage.split(/\s+/).slice(1);
+                await execute(sock,message,args);
+                break;
+
             case userMessage.startsWith('#mute'):
                 {
                     const parts = userMessage.trim().split(/\s+/);
@@ -481,22 +486,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     }, { quoted: message });
                 }
                 break;
-            case userMessage === '#multiplayer'  :  
-                sock.ev.on('messages.upsert', async (m) => {
-                const msg = m.messages[0];
-                if (!msg.message) return;
-
-                    const chatId = msg.key.remoteJid;
-                    const senderId = msg.key.participant || msg.key.remoteJid;
-                    const body = msg.message.conversation || msg.message.extendedTextMessage?.text;
-                    
-                    // Nom du joueur (facultatif)
-                    const pushName = msg.pushName || "Joueur";
-
-                    // Appel du jeu multiplayer
-                    await multiplayerCommand(sock, chatId, senderId, body, pushName);
-                });
-                break;
+         
             case userMessage === '#getnum':
                 await startgame(sock, chatId, message);
                 break;
