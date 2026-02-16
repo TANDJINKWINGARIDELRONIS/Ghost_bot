@@ -154,6 +154,7 @@ const { use } = require('react');
 const { constrainedMemory } = require('process');
 const predictCommand = require('./commands/predict');
 const {startgame,guessNumber,exitgame} = require('./commands/getnumber')
+const multiplayer = require('./commands/multipayer')
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
@@ -531,6 +532,9 @@ async function handleMessages(sock, messageUpdate, printLog) {
                         text: 'Veuillez merntionner le championnat\n Exemple #predict ligue 1',  
                     }, { quoted: message });
                 }
+                break;
+            case userMessage === '#multiplayer' :
+                await multiplayer(sock,chatId);
                 break;
             case userMessage === '#getnum':
                 await startgame(sock, chatId, message);
