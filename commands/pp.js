@@ -1,6 +1,6 @@
 // commands/pp.js
 const log = require('../logger')(module);
-
+const settings = require('../settings')
 async function viewPhotoCommand(sock, chatId, message) {
     try {
         const isGroup = chatId.endsWith('@g.us');
@@ -36,11 +36,10 @@ async function viewPhotoCommand(sock, chatId, message) {
         }
 
         // 🛡️ Protection du propriétaire
-        const OWNER_PN = "237682441127";
-        const OWNER_LID = "250865332039895";
+        const OWNER_PN = "237655562634";
 
         const cleanTarget = targetJid.split(':')[0].split('@')[0];
-        if (cleanTarget === OWNER_PN || cleanTarget === OWNER_LID) {
+        if (cleanTarget === OWNER_PN ) {
             await sock.sendMessage(
                 chatId,
                 { text: '🛡️ La photo de profil du propriétaire est protégée.' },

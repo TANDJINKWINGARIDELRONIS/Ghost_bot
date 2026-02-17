@@ -18,6 +18,7 @@ const genhelp= `
 *• #delete <num_message>*
 *• #sticker*
 *• #tagall*
+*• #admins*
 *•#wheather*
 *• #online*
 *•#news*

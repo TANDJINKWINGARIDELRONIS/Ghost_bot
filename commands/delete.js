@@ -11,7 +11,7 @@ async function deleteCommand(sock, chatId, message, senderId) {
         }
 
         if (!isSenderAdmin) {
-            await sock.sendMessage(chatId, { text: '❌ Seuls les administrateurs peuvent utiliser la commande .delete.' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: '❌ Seuls les administrateurs peuvent utiliser la commande *delete.' }, { quoted: message });
             return;
         }
 

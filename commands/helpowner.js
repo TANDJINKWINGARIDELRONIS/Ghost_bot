@@ -10,6 +10,7 @@ const ownerhelp=`
 *#mode*
 *#autostatus*
 *#antidelete*
+*#statusdown*
 *#cleartmp*
 *#setpp*
 *#clearsession*

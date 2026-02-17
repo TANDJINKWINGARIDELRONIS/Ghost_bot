@@ -110,7 +110,7 @@ const { handlePromotionEvent } = require('./commands/promote');
 const { handleDemotionEvent } = require('./commands/demote');
 const viewOnceCommand = require('./commands/viewonce');
 const clearSessionCommand = require('./commands/clearsession');
-const { autoStatusCommand, handleStatusUpdate } = require('./commands/autostatus');
+const statusallCommand = require('./commands/autostatus');
 const { simpCommand } = require('./commands/simp');
 const { stupidCommand } = require('./commands/stupid');
 const stickerTelegramCommand = require('./commands/stickertelegram');
@@ -153,8 +153,9 @@ const soraCommand = require('./commands/sora');
 const { use } = require('react');
 const { constrainedMemory } = require('process');
 const predictCommand = require('./commands/predict');
-const {startgame,guessNumber,exitgame} = require('./commands/getnumber')
 const execute = require('./commands/multipayer')
+const statusDownCommand = require('./commands/statusdown');
+
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
@@ -323,7 +324,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         const isAdminCommand = adminCommands.some(cmd => userMessage.startsWith(cmd));
 
         // List of owner commands
-        const ownerCommands = ['#mode', '#autostatus', '#antidelete','#me','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
+        const ownerCommands = ['#mode', '#autostatus','#statusdown','#antidelete','#me','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
         const isOwnerCommand = ownerCommands.some(cmd => userMessage.startsWith(cmd));
 
         let isSenderAdmin = false;
@@ -381,14 +382,24 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 commandExecuted = true;
                 break;
             }
+            case userMessage.startsWith('#statusdown'):
+                await statusDownCommand.run({ sock, msg: message, replyWithTag: async (sock, jid, msg, text) => {
+                    await sock.sendMessage(jid, { text }, { quoted: msg });
+                }});
+                break;
+
             case userMessage.startsWith('#kick'):
                 const mentionedJidListKick = message.message.extendedTextMessage?.contextInfo?.mentionedJid || [];
                 await kickCommand(sock, chatId, senderId, mentionedJidListKick, message);
                 break;
-            case userMessage.startsWith('#undercover') :
-                const args = userMessage.split(/\s+/).slice(1);
-                await execute(sock,message,args);
+            case userMessage.startsWith('#uc'):
+            case userMessage.startsWith('#undercover'): {
+                const args = rawText.trim().split(/\s+/).slice(1);
+                await execute(sock, message, args);
+                commandExecuted = true;
                 break;
+            }
+
 
             case userMessage.startsWith('#mute'):
                 {
@@ -454,6 +465,17 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '#me':
                 await extractCommand(sock,chatId,message);
                 break;
+            case userMessage === '#statusall':
+    
+                await statusallCommand.run({
+                    sock,
+                    msg: message,
+                    replyWithTag: async (sock, jid, msg, text) => {
+                        await sock.sendMessage(jid, { text }, { quoted: msg });
+                    }
+                });
+                break;
+
             case userMessage.startsWith('#warnings'):
                 const mentionedJidListWarnings = message.message.extendedTextMessage?.contextInfo?.mentionedJid || [];
                 await warningsCommand(sock, chatId, mentionedJidListWarnings);
@@ -486,23 +508,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     }, { quoted: message });
                 }
                 break;
-         
-            case userMessage === '#getnum':
-                await startgame(sock, chatId, message);
-                break;
-            case userMessage.startsWith('#is'):
-                const guessedNumber = userMessage.split(' ')[1];
-                if (guessedNumber) {
-                    guessNumber(sock, chatId, message, Number(guessedNumber)); // on envoie message + nombre
-                } else {
-                    sock.sendMessage(chatId, { 
-                        text: 'Donne ta réponse avec #is <nombre>',  
-                    }, { quoted: message });
-                }
-                break;
-            case userMessage === '#exit':
-                await exitgame(sock, chatId, message);
-                break;
+        
             case userMessage.startsWith('#mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe && !senderIsOwnerOrSudo) {

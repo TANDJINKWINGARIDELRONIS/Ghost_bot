@@ -80,14 +80,14 @@ async function handleAntideleteCommand(sock, chatId, message, match) {
     const isOwner = await isOwnerOrSudo(senderId, sock, chatId);
     
     if (!message.key.fromMe && !isOwner) {
-        return sock.sendMessage(chatId, { text: '*Only the bot owner can use this command.*' }, { quoted: message });
+        return sock.sendMessage(chatId, { text: '*Seul le proprietaire peut utiliser cette commande.*' }, { quoted: message });
     }
 
     const config = loadAntideleteConfig();
 
     if (!match) {
         return sock.sendMessage(chatId, {
-            text: `*ANTIDELETE SETUP*\n\nCurrent Status: ${config.enabled ? '✅ Enabled' : '❌ Disabled'}\n\n*.antidelete on* - Enable\n*.antidelete off* - Disable`
+            text: `*ANTIDELETE SETUP*\n\nStatut Actuel: ${config.enabled ? '✅ Activer' : '❌ Desactiver'}\n\n* *antidelete on* - Activer\n* *antidelete off* - Desactiver`
         }, {quoted: message});
     }
 
@@ -96,11 +96,11 @@ async function handleAntideleteCommand(sock, chatId, message, match) {
     } else if (match === 'off') {
         config.enabled = false;
     } else {
-        return sock.sendMessage(chatId, { text: '*Invalid command. Use .antidelete to see usage.*' }, {quoted:message});
+        return sock.sendMessage(chatId, { text: '*Commande invalide . Utiliser *antidelete pour voir l\'usage.*' }, {quoted:message});
     }
 
     saveAntideleteConfig(config);
-    return sock.sendMessage(chatId, { text: `*Antidelete ${match === 'on' ? 'enabled' : 'disabled'}*` }, {quoted:message});
+    return sock.sendMessage(chatId, { text: `*Antidelete ${match === 'on' ? 'Activer' : 'Desactiver'}*` }, {quoted:message});
 }
 
 // Store incoming messages (also handles anti-view-once by forwarding immediately)
@@ -229,16 +229,16 @@ async function handleMessageRevocation(sock, revocationMessage) {
             day: '2-digit', month: '2-digit', year: 'numeric'
         });
 
-        let text = `*🔰 ANTIDELETE REPORT 🔰*\n\n` +
-            `*🗑️ Deleted By:* @${deletedBy.split('@')[0]}\n` +
+        let text = `*🔰 ANTIDELETE RAPPORT 🔰*\n\n` +
+            `*🗑️ Deleted Par:* @${deletedBy.split('@')[0]}\n` +
             `*👤 Sender:* @${senderName}\n` +
-            `*📱 Number:* ${sender}\n` +
-            `*🕒 Time:* ${time}\n`;
+            `*📱 Numero:* ${sender}\n` +
+            `*🕒 Heure:* ${time}\n`;
 
-        if (groupName) text += `*👥 Group:* ${groupName}\n`;
+        if (groupName) text += `*👥 Groupe:* ${groupName}\n`;
 
         if (original.content) {
-            text += `\n*💬 Deleted Message:*\n${original.content}`;
+            text += `\n*💬 Message Supprime:*\n${original.content}`;
         }
 
         await sock.sendMessage(ownerNumber, {
