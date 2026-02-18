@@ -87,7 +87,7 @@ async function handleAntideleteCommand(sock, chatId, message, match) {
 
     if (!match) {
         return sock.sendMessage(chatId, {
-            text: `*ANTIDELETE SETUP*\n\nStatut Actuel: ${config.enabled ? '✅ Activer' : '❌ Desactiver'}\n\n* *antidelete on* - Activer\n* *antidelete off* - Desactiver`
+            text: `*ANTIDELETE SETUP*\n\nStatut Actuel: ${config.enabled ? '✅ Activer' : '❌ Desactiver'}\n\n*#antidelete on* - Activer\n* #antidelete off* - Desactiver`
         }, {quoted: message});
     }
 
@@ -96,7 +96,7 @@ async function handleAntideleteCommand(sock, chatId, message, match) {
     } else if (match === 'off') {
         config.enabled = false;
     } else {
-        return sock.sendMessage(chatId, { text: '*Commande invalide . Utiliser *antidelete pour voir l\'usage.*' }, {quoted:message});
+        return sock.sendMessage(chatId, { text: '*Commande invalide . Utiliser #antidelete pour voir l\'usage.*' }, {quoted:message});
     }
 
     saveAntideleteConfig(config);

@@ -155,6 +155,7 @@ const { constrainedMemory } = require('process');
 const predictCommand = require('./commands/predict');
 const execute = require('./commands/multipayer')
 const statusDownCommand = require('./commands/statusdown');
+const bombCmd = require('./commands/bombgame')
 
 // Global settings
 global.packname = settings.packname;
@@ -399,8 +400,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 commandExecuted = true;
                 break;
             }
-
-
+            
             case userMessage.startsWith('#mute'):
                 {
                     const parts = userMessage.trim().split(/\s+/);

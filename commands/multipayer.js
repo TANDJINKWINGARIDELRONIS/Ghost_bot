@@ -111,7 +111,7 @@ Doivent se fondre dans la discussion sans se faire repérer.
 setTimeout(async () => {
     await sock.sendMessage(chatId, {
         text: `
-  🎭 RÈGLES DU JEU UNDERCOVER 🎭
+🎭 RÈGLES DU JEU UNDERCOVER 🎭
 
 🗣 *Déroulement d’un tour* :
 
@@ -135,7 +135,7 @@ Le joueur avec le plus de votes est éliminé.
 setTimeout(async () => {
     await sock.sendMessage(chatId, {
         text: `
-  🎭 RÈGLES DU JEU UNDERCOVER 🎭
+🎭 RÈGLES DU JEU UNDERCOVER 🎭
 🏆 *Conditions de victoire* :
 
 Si tous les Undercover sont éliminés → 🎉 Les Civils gagnent.

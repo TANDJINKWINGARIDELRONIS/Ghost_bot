@@ -10,7 +10,7 @@ const gamehelp=`
 *•#tictactoe @user*
 *•#hangman*
 *•#trivia*
-*•#getnum*
+*•#uc*
 
 
 
