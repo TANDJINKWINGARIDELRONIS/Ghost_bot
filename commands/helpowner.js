@@ -7,23 +7,18 @@ const ownerhelp=`
 ═══════════════════
 👑 *OWNER*
 ═══════════════════
-*#mode*
-*#autostatus*
-*#antidelete*
-*#statusdown*
-*#cleartmp*
-*#setpp*
-*#clearsession*
-*#areact*
-*#autoreact*
-*#autotyping*
-*#autoread*
-*#pmblocker*
+❖ #mode : Permet de changer le mode du bot 
+❖ #autostatus : Active les reactions automatiques sur les statuts
+❖ #statusdown : Telecharger un statut
+❖ #setpp : Modifier la photo de profil du bot/Proprietaire
+❖ #clearsession : Supprimer le dossier session
+❖ #areact/#autoreact : Active les reactions automatiques
+❖ #ban : Bannir un utilisateur (Ne peut plus utiliser le bot)
+❖ #unban : Annler la banissement 
+❖ #autotyping : Active l'ecriture instanée
+❖ #me : Exraire les vue unique 
+❖ #sudo : Donner a un utilisateur les privilèges sur le bot 
 
-
-
-
-╭━━〔 ${'🔥Black Nova🔥'} 〕━━╮
 `;
 
  try {

@@ -155,8 +155,7 @@ const { constrainedMemory } = require('process');
 const predictCommand = require('./commands/predict');
 const execute = require('./commands/multipayer')
 const statusDownCommand = require('./commands/statusdown');
-const bombCmd = require('./commands/bombgame')
-
+const adminCommand = require('./commands/helpadmin')
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
@@ -321,7 +320,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         }
 
         // List of admin commands
-        const adminCommands = ['#mute', '#unmute', '#ban', '#unban', '#promote', '#demote', '#kick', '#tagall', '#tagnotadmin', '#hidetag', '#antilink', '#antitag', '#setgdesc', '#setgname', '#setgpp'];
+        const adminCommands = ['#mute', '#unmute', '#ban', '#unban','#antidelete', '#promote', '#demote', '#kick', '#tagall', '#tagnotadmin', '#hidetag', '#antilink', '#antitag', '#setgdesc', '#setgname', '#setgpp'];
         const isAdminCommand = adminCommands.some(cmd => userMessage.startsWith(cmd));
 
         // List of owner commands
@@ -438,23 +437,27 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await helpCommand(sock, chatId, message, global.channelLink);
                 commandExecuted = true;
                 break;
-            case userMessage === '#help ia' || userMessage === '#help IA' || userMessage === '#help Ia' :
+            case userMessage === '#ia' || userMessage === '#IA' :
                 await helpiaCommand(sock,chatId,message,global.channelLink);
                 commandExecuted = true;
                 break;
-            case userMessage === '#help gen' || userMessage === '#help general' || userMessage === '#help General' :
+            case userMessage === '#tools' :
                 await helpgenCommand(sock,chatId,message,global.channelLink);
                 commandExecuted = true;
                 break;
-            case userMessage === '#help owner' || userMessage === '#help admin' || userMessage === '#help superadmin' || userMessage === '#admin' :
+            case userMessage === '#owner' :
                 await helpownerCommand(sock,chatId,message,global.channelLink);
                 commandExecuted = true;
                 break;
-            case userMessage === '#help social' || userMessage === '#help downloads' || userMessage === '#help Downloads' :
+            case userMessage === '#admin' :
+                await adminCommand(sock,chatId,message,global.channelLink);
+                commandExecuted = true;
+                break;
+            case userMessage === '#data' :
                 await helpdowCommand(sock,chatId,message,global.channelLink);
                 commandExecuted = true;
                 break;
-            case userMessage === '#help game' || userMessage === '#help jeux' || userMessage === '#help jeu' :
+            case userMessage === '#game' || userMessage === '#jeux' :
                 await helpgameCommand(sock,chatId,message,global.channelLink);
                 commandExecuted = true;
                 break;

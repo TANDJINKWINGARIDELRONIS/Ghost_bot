@@ -3,41 +3,68 @@ const fs = require('fs');
 const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
+    const sender = message.key.participant || message.key.remoteJid;
+    const senderNumber = sender.split('@')[0];
+
     const helpMessage = `
-╭━━━〔 🤖 ${settings.botName || 'GHOST '} 〕━━━╮
-┃ ✨ Version : ${settings.version || '2.0.0'}
-┃ 👤 Dev     : ${settings.botOwner || 'MOSTWANTED'}
-┃ 📳 Contact  : ?????
+╭━━━〔 🤖 GHOST 〕━━━╮
+┃
+┃   🌟 *MENU PRINCIPAL* 🌟
 ╰━━━━━━━━━━━━━━━╯
 
-🌟 *MENU PRINCIPAL* 🌟
-_Tape #help <Nom section> pour optenir les commandes_
+👋 Salut @${senderNumber} ✨
 
- ~*SECTION DISPONIBLE*~
-*1-Gestion General*
-*2-IA*
-*3-Downloads et Social*
-*4-Jeux*
-*5-Owner*
+Bienvenue dans la section d'aide 🙂
 
-
-╭━〔${'🔥Black Nova🔥'}〕━╮
+╭━━〔 🛠️ 1. OUTILS 〕━━╮
+┃ ⚙️ Gestion rapide
+┃ Commande : #tools  
+┃
+┃━━━━〔 🤖 2. IA 〕━━━━
+┃ 🧠 Intelligence avancée
+┃ Commande : #ia  
+┃
+┃━〔 📥 3. DOWNLOADS 〕━
+┃ 🌍 Contenu média
+┃ Commande : #data
+┃  
+┃━━━━〔 🎮 4. JEUX 〕━━━
+┃ 🎲 Fun interactif
+┃ Commande : #game
+┃
+┃━━━━〔 🎓 5. ADMINS 〕━━━
+┃ 🔐 Contrôle Du groupe
+┃ Commande : #admin
+┃  
+┃━━━━〔 👑 6. OWNER 〕━━━
+┃ 🔐 Contrôle total
+┃ Commande : #owner
+┃
+╰━〔 🔥Black Nova🔥 〕━╯
 `;
+
     try {
         const imagePath = path.join(__dirname, '../assets/robot.jpeg');
-        
+
         if (fs.existsSync(imagePath)) {
             const imageBuffer = fs.readFileSync(imagePath);
             await sock.sendMessage(chatId, {
                 image: imageBuffer,
-                caption: helpMessage
+                caption: helpMessage,
+                mentions: [sender] // 🔥 mention ici
             }, { quoted: message });
         } else {
-            await sock.sendMessage(chatId, { text: helpMessage });
+            await sock.sendMessage(chatId, {
+                text: helpMessage,
+                mentions: [sender] // 🔥 mention ici aussi
+            }, { quoted: message });
         }
     } catch (error) {
         console.error('Error in help command:', error);
-        await sock.sendMessage(chatId, { text: helpMessage });
+        await sock.sendMessage(chatId, {
+            text: helpMessage,
+            mentions: [sender]
+        }, { quoted: message });
     }
 }
 
