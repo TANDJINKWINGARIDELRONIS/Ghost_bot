@@ -324,7 +324,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         const isAdminCommand = adminCommands.some(cmd => userMessage.startsWith(cmd));
 
         // List of owner commands
-        const ownerCommands = ['#mode', '#autostatus','#statusdown','#antidelete','#me','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
+        const ownerCommands = ['#mode','#autostatus','#statusdown','#antidelete','#me','#cleartmp', '#setpp', '#clearsession', '#areact', '#autoreact', '#autotyping', '#autoread', '#pmblocker'];
         const isOwnerCommand = ownerCommands.some(cmd => userMessage.startsWith(cmd));
 
         let isSenderAdmin = false;
