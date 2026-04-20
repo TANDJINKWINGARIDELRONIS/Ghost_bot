@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHOST BOT | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient -->
+  <div class="ambient">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ===== ADMIN LOGIN OVERLAY ===== -->
+  <div class="admin-login-overlay" id="adminLoginOverlay">
+    <div class="admin-login-box">
+      <div class="admin-login-icon">🔒</div>
+      <div class="admin-login-title">ZONE ADMINISTRATEUR</div>
+      <div class="admin-login-sub">Entrez le mot de passe pour accéder au panneau admin</div>
+      <input class="ghost-input" id="adminPasswordInput" type="password" placeholder="Mot de passe..."
+        onkeydown="if(event.key==='Enter') submitAdminLogin()" autocomplete="off" />
+      <div id="adminLoginError" class="admin-login-error" style="display:none">❌ Mot de passe incorrect</div>
+      <div style="display:flex;gap:10px;margin-top:4px;">
+        <button class="btn btn-ghost btn-wide" onclick="closeAdminLogin()">Annuler</button>
+        <button class="btn btn-primary btn-wide" onclick="submitAdminLogin()">🔓 Accéder</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2C7.373 2 2 7.373 2 14s5.373 12 12 12 12-5.373 12-12S20.627 2 14 2z" fill="url(#ghostGrad)" />
+          <circle cx="10" cy="13" r="2" fill="white" opacity="0.9" />
+          <circle cx="18" cy="13" r="2" fill="white" opacity="0.9" />
+          <path d="M10 18c1.5 1.5 6.5 1.5 8 0" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="ghostGrad" x1="2" y1="2" x2="26" y2="26">
+              <stop offset="0%" stop-color="#7c3aed" />
+              <stop offset="100%" stop-color="#06b6d4" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">GHOST BOT</span>
+        <span class="brand-ver">v3.0.0 · WhatsApp</span>
+      </div>
+    </div>
+
+    <div class="status-pill">
+      <div class="status-dot" id="sidebarDot"></div>
+      <span id="sidebarStatusText">Vérification...</span>
+      <span class="status-users"><span id="sidebarUserCount">0</span>/4</span>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-group-label">NAVIGATION</div>
+      <a href="#" class="nav-link active" data-page="dashboard" onclick="navigate('dashboard',this);return false;">
+        <span class="nav-icon">◈</span> Dashboard
+      </a>
+      <a href="#" class="nav-link" data-page="connection" onclick="navigate('connection',this);return false;">
+        <span class="nav-icon">⊕</span> Connexion
+        <span class="nav-badge" id="navConnBadge">0</span>
+      </a>
+      <a href="#" class="nav-link" data-page="users" onclick="navigate('users',this);return false;">
+        <span class="nav-icon">◎</span> Utilisateurs
+      </a>
+
+      <div class="nav-group-label" style="margin-top:20px">OUTILS</div>
+      <a href="#" class="nav-link" data-page="terminal" onclick="navigate('terminal',this);return false;">
+        <span class="nav-icon">▸</span> Terminal
+        <span class="nav-badge red">!</span>
+      </a>
+      <a href="#" class="nav-link" data-page="admin" onclick="handleAdminNav(this);return false;">
+        <span class="nav-icon">⬡</span> Admin
+        <span class="nav-badge" id="adminLockBadge" style="background:#f59e0b">🔒</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sf-row">
+        <span class="sf-label">Uptime Bot</span>
+        <span class="sf-val" id="sidebarUptime">--:--:--</span>
+      </div>
+      <div class="sf-row">
+        <span class="sf-label">Ghost Bot</span>
+        <span class="sf-val">v3.0.0</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu" onclick="toggleSidebar()">☰</button>
+        <span class="topbar-title" id="pageTitle">DASHBOARD</span>
+      </div>
+      <div class="topbar-right">
+        <div class="bot-status-tag">
+          <div class="status-dot" id="topbarDot"></div>
+          <span id="topbarStatusText">...</span>
+        </div>
+        <button class="btn btn-primary"
+          onclick="navigate('connection',document.querySelector('[data-page=connection]'))">
+          + Ajouter
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- ===== DASHBOARD ===== -->
+      <div class="page active" id="page-dashboard">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon ghost-icon">👻</div>
+            <div class="stat-body">
+              <div class="stat-val" id="statOnline">0</div>
+              <div class="stat-lbl">Utilisateurs Actifs</div>
+            </div>
+            <div class="stat-glow"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💬</div>
+            <div class="stat-body">
+              <div class="stat-val" id="statMessages">0</div>
+              <div class="stat-lbl">Messages Traités</div>
+            </div>
+            <div class="stat-glow blue"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-body">
+              <div class="stat-val" id="statUptime">--:--:--</div>
+              <div class="stat-lbl">Uptime Bot</div>
+            </div>
+            <div class="stat-glow yellow"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🔧</div>
+            <div class="stat-body">
+              <div class="stat-val" id="statCmds">24</div>
+              <div class="stat-lbl">Commandes</div>
+            </div>
+            <div class="stat-glow purple"></div>
+          </div>
+        </div>
+
+        <div class="dash-alert" id="dashAlert">
+          <span class="alert-dot"></span>
+          <span id="alertText">Connexion au bot en cours...</span>
+        </div>
+
+        <div class="dash-cols">
+          <div class="dash-col">
+            <div class="section-header">
+              <span class="section-title">Utilisateurs Connectés</span>
+              <button class="btn btn-ghost btn-sm"
+                onclick="navigate('users',document.querySelector('[data-page=users]'))">Voir tout →</button>
+            </div>
+            <div class="users-list" id="dashUsersList">
+              <div class="users-empty">👻 Aucun utilisateur connecté</div>
+            </div>
+          </div>
+          <div class="dash-col">
+            <div class="section-header">
+              <span class="section-title">Commandes Disponibles</span>
+            </div>
+            <div class="cmds-grid">
+              <div class="cmd-chip sys">⚙️ help</div>
+              <div class="cmd-chip sys">ping</div>
+              <div class="cmd-chip sys">sticker</div>
+              <div class="cmd-chip admin">🛡 kick</div>
+              <div class="cmd-chip admin">tagall</div>
+              <div class="cmd-chip admin">mute</div>
+              <div class="cmd-chip ai">🤖 gpt</div>
+              <div class="cmd-chip ai">gemini</div>
+              <div class="cmd-chip ai">deepseek</div>
+              <div class="cmd-chip dl">📥 play</div>
+              <div class="cmd-chip dl">ytmp4</div>
+              <div class="cmd-chip dl">music</div>
+              <div class="cmd-chip tool">🛠 tts</div>
+              <div class="cmd-chip tool">osint</div>
+              <div class="cmd-chip tool">audit</div>
+              <div class="cmd-chip game">🎮 tictactoe</div>
+              <div class="cmd-chip game">million</div>
+              <div class="cmd-chip game">capital</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CONNEXION ===== -->
+      <div class="page" id="page-connection">
+
+        <div class="conn-divider"><span>Connecter un nouveau numéro</span></div>
+
+        <div class="conn-modes">
+          <div class="conn-card selected" id="cardPair" onclick="selectMode('pair')">
+            <div class="conn-emoji">📱</div>
+            <div class="conn-title">Code de Liaison</div>
+            <div class="conn-desc">Recevez un code unique dans WhatsApp et saisissez-le ici pour lier votre numéro.
+            </div>
+            <div class="conn-check">✓</div>
+          </div>
+          <div class="conn-card" id="cardQR" onclick="selectMode('qr')">
+            <div class="conn-emoji">📷</div>
+            <div class="conn-title">QR Code</div>
+            <div class="conn-desc">Scannez le QR code avec WhatsApp → Appareils liés → Lier un appareil.</div>
+            <div class="conn-check" style="display:none">✓</div>
+          </div>
+        </div>
+
+        <div class="conn-section" id="sectionPair">
+          <div class="section-header"><span class="section-title">Association par Code</span></div>
+          <div class="conn-form">
+            <input class="ghost-input" id="pairNumber" type="tel" placeholder="Numéro (ex: 2376xxxxxxxx)" />
+            <button class="btn btn-primary btn-wide" onclick="connectBot()">
+              <span id="connectBtnText">⚡ Connecter</span>
+            </button>
+            <button class="btn btn-danger btn-wide" onclick="disconnectBot()">✕ Déconnecter</button>
+          </div>
+          <div class="pair-code-box" id="pairCodeBox" style="display:none">
+            <div class="pair-code-label">Code d'Association</div>
+            <div class="pair-code" id="pairCodeValue">----</div>
+            <div class="pair-prefix" id="pairPrefixValue"></div>
+          </div>
+        </div>
+
+        <div class="conn-section" id="sectionQR" style="display:none">
+          <div class="section-header"><span class="section-title">Scanner le QR Code</span></div>
+          <div class="qr-wrapper">
+            <div class="qr-box">
+              <div class="qr-scan-line"></div>
+              <div class="qr-inner" id="qrInner"></div>
+            </div>
+            <div class="qr-timer">Expire dans <strong id="qrTimer">45s</strong></div>
+            <button class="btn btn-ghost" onclick="regenQR()">🔄 Regénérer</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== USERS ===== -->
+      <div class="page" id="page-users">
+        <div class="section-header">
+          <span class="section-title">Gestion des Utilisateurs</span>
+          <span class="badge-count" id="userCountBadge">0 / 4 connectés</span>
+        </div>
+        <div class="users-slots" id="usersSlots"></div>
+      </div>
+
+      <!-- ===== TERMINAL ===== -->
+      <div class="page" id="page-terminal">
+        <div class="terminal-wrap">
+          <div class="terminal-topbar">
+            <div class="terminal-dots">
+              <span class="tdot red"></span>
+              <span class="tdot yellow"></span>
+              <span class="tdot green"></span>
+            </div>
+            <span class="terminal-title">GHOST BOT — LIVE TERMINAL</span>
+            <div class="terminal-controls">
+              <button class="tbtn" onclick="clearTerminal()">🗑 Vider</button>
+              <button class="tbtn" onclick="exportLogs()">⬇ Export</button>
+              <button class="tbtn" id="autoScrollBtn" onclick="toggleAutoScroll()">↓ Auto</button>
+              <button class="tbtn" onclick="fetchLogs(true)">↺ Reload</button>
+            </div>
+          </div>
+          <div class="terminal-filters">
+            <button class="filter-btn active" onclick="setFilter('all',this)">TOUT</button>
+            <button class="filter-btn" onclick="setFilter('info',this)">INFO</button>
+            <button class="filter-btn" onclick="setFilter('success',this)">SUCCESS</button>
+            <button class="filter-btn" onclick="setFilter('warn',this)">WARN</button>
+            <button class="filter-btn" onclick="setFilter('error',this)">ERROR</button>
+            <input class="filter-search" type="text" placeholder="Filtrer les logs..."
+              oninput="filterLogs(this.value)" />
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <div class="term-line">
+              <span class="ttime">--:--:--</span>
+              <span class="tlevel sys">SYS</span>
+              <span class="tmsg">Ghost Bot Terminal initialisé. En attente des logs de /logs...</span>
+            </div>
+          </div>
+          <div class="terminal-footer">
+            <span id="termLogCount">0 logs</span>
+            <span id="termRenderStatus">Source: /logs</span>
+            <span id="termLastUpdate">Dernière MàJ: --</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ADMIN ===== -->
+      <div class="page" id="page-admin">
+        <div class="admin-warning" style="display:flex;align-items:center;">
+          <span>⚠️ Zone Administrateur — Les actions ici sont irréversibles.</span>
+          <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="logoutAdmin()">🔒 Verrouiller</button>
+        </div>
+
+        <div class="admin-grid">
+          <div class="admin-card" style="grid-column:1/-1">
+            <div class="admin-card-title">👑 Compte Owner Prédéfini</div>
+            <div class="owner-card" style="margin-top:10px; background:var(--surface)">
+              <div class="owner-left">
+                <div class="owner-avatar">👑</div>
+                <div class="owner-info">
+                  <div class="owner-number" id="ownerNumberDisplay" style="font-size:16px; font-weight:700">Chargement...</div>
+                  <div class="owner-prefix" id="ownerPrefixDisplay" style="font-size:12px; color:var(--accent2)"></div>
+                </div>
+              </div>
+              <button class="btn btn-primary" id="ownerConnectBtn" onclick="connectOwner()">
+                ⚡ Connecter Owner
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-title">🎛 Contrôle du Bot</div>
+            <div class="admin-btns">
+              <button class="admin-btn" onclick="showToast('🔄 Redémarrage en cours...')">🔄 Redémarrer</button>
+              <button class="admin-btn" onclick="showToast('🧹 Cache vidé')">🧹 Vider Cache</button>
+              <button class="admin-btn" onclick="showToast('📡 Reconnexion forcée')">📡 Forcer Reconnexion</button>
+              <button class="admin-btn danger" onclick="showToast('⏹ Bot arrêté')">⏹ Arrêter le Bot</button>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-title">📡 Infos Serveur</div>
+            <div class="admin-info-rows">
+              <div class="info-row">
+                <span class="info-key">Statut Bot</span>
+                <span class="info-val" id="adminRenderStatus">--</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">Uptime Bot</span>
+                <span class="info-val" id="adminUptime">--</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">URL Serveur</span>
+                <span class="info-val" id="adminBotUrl">--</span>
+              </div>
+              <div class="info-row">
+                <span class="info-key">Messages traités</span>
+                <span class="info-val" id="adminMessages">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-title">🗂 Dictionnaire des Préfixes</div>
+            <div class="prefix-dict" id="prefixDict">
+              <div class="users-empty">Aucun préfixe assigné</div>
+            </div>
+          </div>
+
+          <div class="admin-card" style="grid-column:1/-1">
+            <div class="admin-card-title">👥 Gestion Avancée des Utilisateurs</div>
+            <div class="admin-users-list" id="adminUsersList">
+              <div class="users-empty">Chargement...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </main>
+
+  <!-- Confirm modal -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal">
+      <div class="modal-icon">⚠</div>
+      <h3 class="modal-title" id="modalTitle">Confirmer l'action</h3>
+      <p class="modal-msg" id="modalMsg">Êtes-vous sûr ?</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" onclick="closeModal()">Annuler</button>
+        <button class="btn btn-danger" id="modalConfirmBtn">Confirmer</button>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"><span id="toastMsg"></span></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
