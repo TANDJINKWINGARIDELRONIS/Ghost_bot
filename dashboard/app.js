@@ -314,6 +314,10 @@ function updateDashboard() {
   const list = g("dashUsersList");
   if (!list) return;
 
+  const currentUsersState = JSON.stringify(state.users);
+  if (list.dataset.usersState === currentUsersState) return;
+  list.dataset.usersState = currentUsersState;
+
   if (state.users.length === 0) {
     list.innerHTML = '<div class="users-empty">👻 Aucun utilisateur connecté</div>';
     return;
@@ -432,6 +436,10 @@ function renderUsersPage() {
   if (!slots) return;
   if (badge) badge.textContent = `${state.users.length} / ${4} connectés`;
 
+  const currentUsersState = JSON.stringify(state.users);
+  if (slots.dataset.usersState === currentUsersState) return;
+  slots.dataset.usersState = currentUsersState;
+
   let html = "";
   // Afficher jusqu'à MAX_USERS slots (4 comme dans index.js)
   for (let i = 0; i < 4; i++) {
@@ -483,6 +491,10 @@ function renderAdminPage() {
   const list = document.getElementById("adminUsersList");
   if (!list) return;
 
+  const currentUsersState = JSON.stringify(state.users);
+  if (list.dataset.usersState === currentUsersState) return;
+  list.dataset.usersState = currentUsersState;
+
   if (state.users.length === 0) {
     list.innerHTML = '<div class="users-empty">Aucun utilisateur connecté</div>';
     return;
@@ -500,7 +512,7 @@ function renderAdminPage() {
           ${u.number}
           ${u.isOwner ? '<span style="color:var(--warn);margin-left:6px">[Owner]</span>' : ""}
         </div>
-        <div style="font-size:11px;color:var(--accent2);font-family:'Space Mono',monospace">
+        <div style="font-size:11px;color:var(--accent2);font-family:'JetBrains Mono',monospace">
           Prefix : <b>${u.prefix || "?"}</b>
         </div>
       </div>
@@ -519,6 +531,10 @@ function renderAdminPage() {
 function renderPrefixDict() {
   const dict = document.getElementById("prefixDict");
   if (!dict) return;
+
+  const currentUsersState = JSON.stringify(state.users);
+  if (dict.dataset.usersState === currentUsersState) return;
+  dict.dataset.usersState = currentUsersState;
 
   if (state.users.length === 0) {
     dict.innerHTML = '<div class="users-empty">Aucun préfixe assigné pour l\'instant</div>';
@@ -545,14 +561,21 @@ async function fetchLogs(force = false) {
     const data = await res.json();
     if (!Array.isArray(data)) return;
 
-    // Ajouter seulement les nouveaux logs (state.logPointer = dernier index connu)
+    // Ajouter seulement les nouveaux logs
     const newLogs = data.slice(state.logPointer);
     newLogs.forEach(l => {
-      addLog(detectLevel(l.msg || ""), l.msg || "", l.time || null, false);
+      const logObj = {
+        level: detectLevel(l.msg || ""),
+        msg:   l.msg || "",
+        time:  l.time || nowTime(),
+      };
+      state.allLogs.push(logObj);
+      if (state.allLogs.length > CONFIG.maxLogs) state.allLogs.shift();
+      appendLogToDOM(logObj);
     });
     state.logPointer = data.length;
 
-    if (newLogs.length > 0 || force) renderTerminal();
+    if (force) renderTerminal();
 
     const lastUpd = document.getElementById("termLastUpdate");
     if (lastUpd) lastUpd.textContent = "Dernière MàJ: " + nowTime();
@@ -563,13 +586,51 @@ async function fetchLogs(force = false) {
 }
 
 function addLog(level, msg, time, render = true) {
-  state.allLogs.push({
+  const l = {
     level: level || "info",
     msg:   msg   || "",
     time:  time  || nowTime(),
-  });
+  };
+  state.allLogs.push(l);
   if (state.allLogs.length > CONFIG.maxLogs) state.allLogs.shift();
-  if (render) renderTerminal();
+  if (render) {
+    appendLogToDOM(l);
+  }
+}
+
+function createLogHTML(l) {
+  return `
+      <div class="term-line" data-level="${l.level}">
+        <span class="ttime">${l.time}</span>
+        <span class="tlevel ${l.level}">${l.level.toUpperCase()}</span>
+        <span class="tmsg">${escapeHtml(l.msg)}</span>
+      </div>`;
+}
+
+function appendLogToDOM(l) {
+  const body = document.getElementById("terminalBody");
+  if (!body) return;
+
+  const lvlOk    = state.logFilter === "all" || l.level === state.logFilter;
+  const searchOk = !state.logSearch || l.msg.toLowerCase().includes(state.logSearch.toLowerCase());
+  
+  if (lvlOk && searchOk) {
+    if (body.children.length === 1 && body.children[0].querySelector('.tmsg') && body.children[0].querySelector('.tmsg').textContent.includes("En attente")) {
+        body.innerHTML = "";
+    }
+    body.insertAdjacentHTML("beforeend", createLogHTML(l));
+    
+    // Nettoyage visuel si dépassement de maxLogs (optionnel)
+    while (body.children.length > CONFIG.maxLogs) {
+      body.removeChild(body.firstChild);
+    }
+    
+    if (state.autoScroll) body.scrollTop = body.scrollHeight;
+    
+    const cnt = document.getElementById("termLogCount");
+    const visibleCount = body.querySelectorAll('.term-line').length;
+    if (cnt) cnt.textContent = visibleCount + " logs";
+  }
 }
 
 function renderTerminal() {
@@ -590,12 +651,7 @@ function renderTerminal() {
         <span class="tmsg">Aucun log correspondant. En attente...</span>
       </div>`;
   } else {
-    body.innerHTML = filtered.map(l => `
-      <div class="term-line" data-level="${l.level}">
-        <span class="ttime">${l.time}</span>
-        <span class="tlevel ${l.level}">${l.level.toUpperCase()}</span>
-        <span class="tmsg">${escapeHtml(l.msg)}</span>
-      </div>`).join("");
+    body.innerHTML = filtered.map(l => createLogHTML(l)).join("");
   }
 
   if (state.autoScroll) body.scrollTop = body.scrollHeight;
