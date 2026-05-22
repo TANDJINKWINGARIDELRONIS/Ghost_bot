@@ -98,29 +98,61 @@ async function callDeepSeek(prompt) {
     }
 }
 
+
 // ─────────────────────────────────────────────
-//  🖼️  GÉNÉRATION D'IMAGE — Nano Banana
+//  🖼️  GÉNÉRATION D'IMAGE — Pollinations AI
+//  Sans clé API • Gratuit • Rapide
 // ─────────────────────────────────────────────
 
 async function generateNanoBanana(prompt) {
     try {
-        const client = new OpenAI({
-            apiKey: process.env.OPENAI_API_KEY,
-            baseURL: 'https://wisdom-gate.juheapi.com/v1'
+        if (!prompt || prompt.trim().length < 3) {
+            throw new Error('Prompt invalide');
+        }
+
+        const cleanPrompt = encodeURIComponent(prompt.trim());
+
+        const imageUrl =
+            `https://image.pollinations.ai/prompt/${cleanPrompt}` +
+            `?width=1024&height=1024&seed=${Date.now()}` +
+            `&model=flux&nologo=true`;
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
+
+        const response = await fetch(imageUrl, {
+            method: 'GET',
+            signal: controller.signal,
+            headers: {
+                'User-Agent': 'GhostBot/1.0'
+            }
         });
-        const response = await client.images.generate({
-            model: 'gemini-2.5-flash-image',
-            prompt: prompt,
-            size: '1024x1024'
-        });
-        const image_base64 = response.data[0].b64_json;
-        return Buffer.from(image_base64, 'base64');
+
+        clearTimeout(timeout);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        // VERSION STABLE NODE.JS
+        const buffer = Buffer.from(await response.buffer());
+
+        if (!buffer || buffer.length < 1000) {
+            throw new Error('Image invalide reçue');
+        }
+
+        return buffer;
+
     } catch (err) {
         console.error('Image generation error:', err.message);
+
+        if (err.name === 'AbortError') {
+            throw new Error('Timeout génération image');
+        }
+
         throw err;
     }
 }
-
 // ─────────────────────────────────────────────
 //  🧠  CEREBRAS
 // ─────────────────────────────────────────────
@@ -352,40 +384,61 @@ async function aiCommand(sock, chatId, message) {
         // ════════════════════════════════════════════════════════
         //  #image / #img — Génération d'image ✅ CORRIGÉ
         // ════════════════════════════════════════════════════════
+
+        // ════════════════════════════════════════════════════════
+        //  #image / #img — Génération d'image
+        // ════════════════════════════════════════════════════════
         else if (command === '#image' || command === '#img') {
             if (!query) {
                 return sock.sendMessage(chatId, {
                     text:
                         `🖼️ *Usage :* \`#image <description>\`\n\n` +
                         `💡 *Exemple :*\n` +
-                        `  \`#image Un lion dans la forêt au coucher du soleil\``
+                        `  \`#image Un hacker cyberpunk sous la pluie\``
                 }, { quoted: message });
             }
+
             try {
                 await sock.sendMessage(chatId, {
-                    text: `🎨 _Génération en cours..._`
+                    react: {
+                        text: '🎨',
+                        key: message.key
+                    }
+                });
+
+                // Message attente
+                const waitMsg = await sock.sendMessage(chatId, {
+                    text:
+                        `╔════════════════════════════╗\n` +
+                        `║   🎨  GHOST IMAGE AI       ║\n` +
+                        `╚════════════════════════════╝\n\n` +
+                        `⏳ Génération de l'image...`
                 }, { quoted: message });
 
-                const img = await generateNanoBanana(query);
+                // Génération image
+                const imgBuffer = await generateNanoBanana(query);
 
-                return sock.sendMessage(chatId, {
-                    image: img,
+                // Envoi image
+                await sock.sendMessage(chatId, {
+                    image: imgBuffer,
                     caption:
                         `╔══════════════════════════════════╗\n` +
-                        `║       🖼️  *IMAGE GÉNÉRÉE*         ║\n` +
+                        `║       🖼️  IMAGE GÉNÉRÉE          ║\n` +
                         `╚══════════════════════════════════╝\n\n` +
-                        `🎨 *Prompt :* ${query}`
+                        `🎨 *Prompt :* ${query}\n` +
+                        `⚡ *Engine :* Pollinations AI`
                 }, { quoted: message });
+
             } catch (e) {
                 console.error('Image generation failed:', e.message);
+
                 return sock.sendMessage(chatId, {
                     text:
-                        `❌ *Impossible de générer l'image.*\n\n` +
+                        `❌ *Erreur génération image*\n\n` +
                         `📋 ${e.message}`
                 }, { quoted: message });
             }
         }
-
         // ════════════════════════════════════════════════════════
         //  #nano — GPT-5 Nano
         // ════════════════════════════════════════════════════════

@@ -46,7 +46,7 @@ const state = {
   botStartTime:      null,    // reçu du serveur via /status → startTime
   dashStartTime:     Date.now(),
   messageCount:      0,
-  logPointer:        0,       // index dans WEB_LOGS pour éviter les doublons
+  lastLogId:         0,       // ID du dernier log traité pour éviter les doublons avec le buffer glissant
   toastTimer:        null,
   adminAuthenticated: false,
 };
@@ -60,8 +60,34 @@ document.addEventListener("DOMContentLoaded", () => {
   startPolling();
   startUptimeCounter();
   fetchLogs(true);
-  navigate("dashboard");
+  
+  // SPA Routing based on URL pathname on first load
+  handleSPARouting();
+
+  // Listen to popstate event for back/forward browser navigation
+  window.addEventListener("popstate", () => {
+    handleSPARouting();
+  });
 });
+
+function handleSPARouting() {
+  const pathName = window.location.pathname.replace(/^\/|\/$/g, "");
+  if (pathName === "pair" || pathName === "connection") {
+    navigate("connection");
+    selectMode("pair");
+  } else if (pathName === "qr") {
+    navigate("connection");
+    selectMode("qr");
+  } else if (pathName === "users") {
+    navigate("users");
+  } else if (pathName === "admin") {
+    navigate("admin");
+  } else if (pathName === "terminal") {
+    navigate("terminal");
+  } else {
+    navigate("dashboard");
+  }
+}
 
 function startPolling() {
   checkStatus();
@@ -84,6 +110,19 @@ function navigate(pageId, el) {
   } else {
     const link = document.querySelector(`[data-page="${pageId}"]`);
     if (link) link.classList.add("active");
+  }
+
+  // Update browser URL beautifully based on target page
+  const urlPageMap = {
+    dashboard: "/",
+    connection: "/pair",
+    users: "/users",
+    terminal: "/terminal",
+    admin: "/admin"
+  };
+  const targetUrl = urlPageMap[pageId] || "/";
+  if (window.location.pathname !== targetUrl) {
+    window.history.pushState(null, "", targetUrl);
   }
 
   const titles = {
@@ -455,9 +494,9 @@ function renderUsersPage() {
           </div>
           <div class="slot-info">
             <div class="slot-phone">
-              ${u.isOwner ? "Utilisateur Owner" : "Utilisateur " + (i + 1)}
+              ${u.isOwner ? "👑 Owner (+" + u.number + ")" : "👤 Utilisateur (+" + u.number + ")"}
             </div>
-            <div class="slot-prefix">Prefix : <b>Masqué</b></div>
+            <div class="slot-prefix">Prefix : <b>${u.prefix || "?"}</b></div>
           </div>
           <span style="font-size:11px;color:var(--accent3);font-weight:700;margin-right:16px">● ACTIF</span>
         </div>`;
@@ -552,6 +591,105 @@ function renderPrefixDict() {
 }
 
 // ════════════════════════════════════════════
+//  🛡  ACTIONS DU PANNEAU ADMIN
+// ════════════════════════════════════════════
+async function adminRestart() {
+  openModal(
+    "Redémarrer le serveur",
+    "Êtes-vous sûr de vouloir redémarrer le serveur Ghost Bot ?",
+    async () => {
+      try {
+        const res = await fetch(`${CONFIG.botApiUrl}/admin/restart`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-admin-password": CONFIG.adminPassword
+          }
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast("🔄 " + data.message);
+          addLog("warn", `[ADMIN] ${data.message}`);
+        } else {
+          showToast("❌ " + data.message);
+        }
+      } catch (e) {
+        showToast("❌ Erreur réseau");
+      }
+    }
+  );
+}
+
+async function adminClearCache() {
+  try {
+    const res = await fetch(`${CONFIG.botApiUrl}/admin/clearcache`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-admin-password": CONFIG.adminPassword
+      }
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast(`🧹 Cache vidé (${data.filesCleared} fichiers supprimés)`);
+      addLog("success", `[ADMIN] Cache vidé : ${data.filesCleared} fichiers supprimés`);
+    } else {
+      showToast("❌ " + data.message);
+    }
+  } catch (e) {
+    showToast("❌ Erreur réseau");
+  }
+}
+
+async function adminReconnect() {
+  try {
+    const res = await fetch(`${CONFIG.botApiUrl}/admin/reconnect`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-admin-password": CONFIG.adminPassword
+      }
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast("📡 " + data.message);
+      addLog("info", `[ADMIN] ${data.message}`);
+    } else {
+      showToast("❌ " + data.message);
+    }
+  } catch (e) {
+    showToast("❌ Erreur réseau");
+  }
+}
+
+async function adminShutdown() {
+  openModal(
+    "Arrêter le serveur",
+    "Êtes-vous sûr de vouloir arrêter le serveur définitivement ? Il devra être relancé manuellement.",
+    async () => {
+      try {
+        const res = await fetch(`${CONFIG.botApiUrl}/admin/shutdown`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-admin-password": CONFIG.adminPassword
+          }
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast("⏹ " + data.message);
+          addLog("error", `[ADMIN] ${data.message}`);
+        } else {
+          showToast("❌ " + data.message);
+        }
+      } catch (e) {
+        showToast("❌ Erreur réseau");
+      }
+    }
+  );
+}
+
+// ════════════════════════════════════════════
 //  📋  TERMINAL — GET /logs (WEB_LOGS de index.js)
 // ════════════════════════════════════════════
 async function fetchLogs(force = false) {
@@ -561,10 +699,11 @@ async function fetchLogs(force = false) {
     const data = await res.json();
     if (!Array.isArray(data)) return;
 
-    // Ajouter seulement les nouveaux logs
-    const newLogs = data.slice(state.logPointer);
+    // Filter logs that have an ID greater than the last processed log ID
+    const newLogs = data.filter(l => l.id > (state.lastLogId || 0));
     newLogs.forEach(l => {
       const logObj = {
+        id:    l.id,
         level: detectLevel(l.msg || ""),
         msg:   l.msg || "",
         time:  l.time || nowTime(),
@@ -572,8 +711,8 @@ async function fetchLogs(force = false) {
       state.allLogs.push(logObj);
       if (state.allLogs.length > CONFIG.maxLogs) state.allLogs.shift();
       appendLogToDOM(logObj);
+      state.lastLogId = l.id;
     });
-    state.logPointer = data.length;
 
     if (force) renderTerminal();
 

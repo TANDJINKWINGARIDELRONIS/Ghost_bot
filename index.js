@@ -50,6 +50,7 @@ global.themeemoji = '👻'
 
 const WEB_LOGS = []
 const _loggedMsgs = new Set()   // anti-doublon
+let logSequence = 0
 
 function addLog(message) {
     // Déduplication : ignorer les messages identiques consécutifs
@@ -57,7 +58,8 @@ function addLog(message) {
     _loggedMsgs.add(message)
     setTimeout(() => _loggedMsgs.delete(message), 8000)
 
-    const entry = { time: new Date().toLocaleTimeString(), msg: message }
+    logSequence++
+    const entry = { id: logSequence, time: new Date().toLocaleTimeString(), msg: message }
     WEB_LOGS.push(entry)
     if (WEB_LOGS.length > 300) WEB_LOGS.shift()
     console.log(message)
@@ -414,13 +416,99 @@ app.get('/', (req, res) => {
     res.send('👻 Ghost Bot actif.')
 })
 
-    ;['pair', 'users', 'visual', 'admin', 'qr'].forEach(page => {
+    ;['pair', 'users', 'visual', 'admin', 'qr', 'connection', 'terminal'].forEach(page => {
         app.get('/' + page, (req, res) => {
-            const p = path.join(__dirname, page + '.html')
+            const p = path.join(dashDir, 'index.html')
             if (fs.existsSync(p)) return res.sendFile(p)
             res.status(404).send('Page introuvable')
         })
     })
+
+// ── Actions & Middleware Administrateur ───────
+
+const adminAuth = (req, res, next) => {
+    const password = req.headers['x-admin-password']
+    if (password === (process.env.ADMIN_PASSWORD || '1234')) {
+        next()
+    } else {
+        res.status(401).json({ error: true, message: 'Mot de passe administrateur incorrect ou manquant' })
+    }
+}
+
+// Nettoie récursivement un dossier
+function clearDirectory(dirPath) {
+    if (!fs.existsSync(dirPath)) return 0
+    let clearedCount = 0
+    const files = fs.readdirSync(dirPath)
+    for (const file of files) {
+        const fullPath = path.join(dirPath, file)
+        try {
+            if (fs.lstatSync(fullPath).isDirectory()) {
+                fs.rmSync(fullPath, { recursive: true, force: true })
+            } else {
+                fs.unlinkSync(fullPath)
+            }
+            clearedCount++
+        } catch (err) {
+            // Ignorer silencieusement si verrouillé
+        }
+    }
+    return clearedCount
+}
+
+app.post('/admin/clearcache', adminAuth, (req, res) => {
+    let totalCleared = 0
+    totalCleared += clearDirectory(path.join(__dirname, 'cache'))
+    totalCleared += clearDirectory(path.join(__dirname, 'temp'))
+    totalCleared += clearDirectory(path.join(__dirname, 'tmp'))
+    
+    addLog(`🧹 Cache serveur vidé par l'administrateur (${totalCleared} fichiers/dossiers supprimés)`)
+    res.json({ success: true, filesCleared: totalCleared })
+})
+
+app.post('/admin/reconnect', adminAuth, async (req, res) => {
+    const activeNumbers = Object.keys(bots)
+    if (activeNumbers.length === 0) {
+        return res.json({ success: false, message: 'Aucun bot actif à reconnecter' })
+    }
+    
+    addLog(`📡 Reconnexion forcée de ${activeNumbers.length} bot(s) par l'administrateur`)
+    
+    for (const number of activeNumbers) {
+        try {
+            _cleanupSocket(number)
+            startBot(number, { usePairingCode: false }).catch(err => {
+                addLog(`❌ Échec de reconnexion pour ${number}: ${err.message}`)
+            })
+        } catch (err) {
+            addLog(`❌ Erreur de reconnexion pour ${number}: ${err.message}`)
+        }
+    }
+    
+    res.json({ success: true, message: `Reconnexion forcée lancée pour ${activeNumbers.length} bot(s)` })
+})
+
+app.post('/admin/restart', adminAuth, (req, res) => {
+    addLog('🔄 Redémarrage du serveur demandé par l\'administrateur...')
+    res.json({ success: true, message: 'Redémarrage du serveur en cours...' })
+    
+    setTimeout(() => {
+        process.exit(0)
+    }, 1000)
+})
+
+app.post('/admin/shutdown', adminAuth, (req, res) => {
+    addLog('⏹ Arrêt complet du serveur demandé par l\'administrateur...')
+    res.json({ success: true, message: 'Arrêt du serveur en cours...' })
+    
+    Object.keys(bots).forEach(number => {
+        _cleanupSocket(number)
+    })
+    
+    setTimeout(() => {
+        process.exit(0)
+    }, 1000)
+})
 
 // ── GET /status ───────────────────────────────
 
