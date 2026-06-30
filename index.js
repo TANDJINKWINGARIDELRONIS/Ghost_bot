@@ -9,6 +9,7 @@ const chalk = require('chalk')
 const pino = require('pino')
 const NodeCache = require('node-cache')
 const express = require('express')
+const readline = require('readline')
 
 const { handleMessages, handleGroupParticipantUpdate, handleStatus } = require('./main')
 const { reactToAllMessages } = require('./lib/reactions')
@@ -138,6 +139,13 @@ function sessionExists(number) {
         return false
     }
 }
+
+// ─────────────────────────────────────────────
+//  ⌨️  ENTRÉE TERMINAL
+// ─────────────────────────────────────────────
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+const askQuestion = (question) => new Promise((resolve) => rl.question(question, resolve))
 
 // ─────────────────────────────────────────────
 //  🤖  DÉMARRAGE BOT
@@ -461,7 +469,7 @@ app.post('/admin/clearcache', adminAuth, (req, res) => {
     totalCleared += clearDirectory(path.join(__dirname, 'cache'))
     totalCleared += clearDirectory(path.join(__dirname, 'temp'))
     totalCleared += clearDirectory(path.join(__dirname, 'tmp'))
-    
+
     addLog(`🧹 Cache serveur vidé par l'administrateur (${totalCleared} fichiers/dossiers supprimés)`)
     res.json({ success: true, filesCleared: totalCleared })
 })
@@ -471,9 +479,9 @@ app.post('/admin/reconnect', adminAuth, async (req, res) => {
     if (activeNumbers.length === 0) {
         return res.json({ success: false, message: 'Aucun bot actif à reconnecter' })
     }
-    
+
     addLog(`📡 Reconnexion forcée de ${activeNumbers.length} bot(s) par l'administrateur`)
-    
+
     for (const number of activeNumbers) {
         try {
             _cleanupSocket(number)
@@ -484,14 +492,14 @@ app.post('/admin/reconnect', adminAuth, async (req, res) => {
             addLog(`❌ Erreur de reconnexion pour ${number}: ${err.message}`)
         }
     }
-    
+
     res.json({ success: true, message: `Reconnexion forcée lancée pour ${activeNumbers.length} bot(s)` })
 })
 
 app.post('/admin/restart', adminAuth, (req, res) => {
     addLog('🔄 Redémarrage du serveur demandé par l\'administrateur...')
     res.json({ success: true, message: 'Redémarrage du serveur en cours...' })
-    
+
     setTimeout(() => {
         process.exit(0)
     }, 1000)
@@ -500,11 +508,11 @@ app.post('/admin/restart', adminAuth, (req, res) => {
 app.post('/admin/shutdown', adminAuth, (req, res) => {
     addLog('⏹ Arrêt complet du serveur demandé par l\'administrateur...')
     res.json({ success: true, message: 'Arrêt du serveur en cours...' })
-    
+
     Object.keys(bots).forEach(number => {
         _cleanupSocket(number)
     })
-    
+
     setTimeout(() => {
         process.exit(0)
     }, 1000)
@@ -538,73 +546,10 @@ app.get('/status', (req, res) => {
 //   5. Nouveau bot → démarrer + retourner pairing code
 //
 app.post('/connect', async (req, res) => {
-    const { number } = req.body
-
-    if (!number) {
-        return res.json({ error: true, message: 'Numéro manquant' })
-    }
-
-    // Garantir que le préfixe owner est toujours '#'
-    if (number === OWNER_NUMBER) {
-        userPrefixes[number] = PREFIX_LIST[0]
-    }
-
-    // Vérifier si une session valide existe déjà → connexion auto, pas de code
-    if (sessionExists(number) && bots[number]) {
-        return res.json({
-            error: true,
-            message: `${number} est déjà connecté via session existante`,
-        })
-    }
-
-    // Slots pleins (en comptant les bots réellement actifs)
-    const activeCount = Object.keys(bots).length
-    if (activeCount >= MAX_USERS && !bots[number]) {
-        return res.json({
-            error: true,
-            message: `Maximum d'utilisateurs atteint (${MAX_USERS})`,
-        })
-    }
-
-    // Réserver le préfixe avant tout démarrage
-    reservePrefix(number)
-    addLog(`[CONNECT] Numéro: ${number} — Prefix: ${userPrefixes[number]}`)
-
-    // Si le socket existe déjà (démarrage en cours), on re-demande juste le code
-    if (bots[number]) {
-        try {
-            await delay(1500)
-            let raw = await bots[number].requestPairingCode(number)
-            const code = raw.match(/.{1,4}/g).join('-')
-            addLog(`📲 Code re-généré pour ${number}: ${code}`)
-            return res.json({ code, prefix: userPrefixes[number] })
-        } catch (err) {
-            return res.json({ error: true, message: 'Impossible de re-générer le code: ' + err.message })
-        }
-    }
-
-    // Nouveau bot — on démarre et on retourne le code via Promise
-    try {
-        const code = await new Promise(async (resolve, reject) => {
-            const timeout = setTimeout(() => {
-                reject(new Error('Timeout: code non reçu dans les 30 secondes'))
-            }, 30_000)
-
-            await startBot(number, {
-                usePairingCode: true,
-                resolveCode: (c) => { clearTimeout(timeout); resolve(c) },
-                resolveError: (e) => { clearTimeout(timeout); reject(e) },
-            })
-        })
-
-        return res.json({ code, prefix: userPrefixes[number] })
-
-    } catch (err) {
-        addLog(`❌ /connect erreur pour ${number}: ${err.message}`)
-        // Nettoyage partiel si le bot n'est pas encore enregistré
-        if (!sessionExists(number)) _cleanupBot(number, false)
-        return res.json({ error: true, message: err.message || 'Erreur de connexion' })
-    }
+    return res.status(403).json({
+        error: true,
+        message: '🚫 La connexion via le dashboard est désactivée. Utilisez le terminal du serveur pour connecter un numéro.'
+    })
 })
 
 // ── POST /disconnect ──────────────────────────
@@ -662,7 +607,6 @@ app.get('/qr-verif', (req, res) => res.json({ qr: null }))
 
 app.listen(PORT, async () => {
     addLog(`🌍 Serveur HTTP actif sur le port ${PORT}`)
-    addLog(`📊 Dashboard : http://localhost:${PORT}`)
     addLog(`👻 Ghost Bot v4.0 démarré`)
 
     // Préfixe owner fixé dès le départ
@@ -681,9 +625,43 @@ app.listen(PORT, async () => {
                 addLog(`✅ Session owner trouvée — Restauration automatique`)
                 await startBot(OWNER_NUMBER, { usePairingCode: false })
             } else {
-                // ── CAS 2 : Pas de session → pairing code via dashboard ───
-                addLog(`ℹ️ Aucune session owner — Utilisez le dashboard pour générer un pairing code`)
-                addLog(`💡 Allez sur la page "Connexion" et cliquez "Connecter Owner"`)
+                // ── CAS 2 : Pas de session → pairing code demandé via le terminal ──
+                console.log('\n👻 Ghost Bot — Connexion requise')
+                console.log(`Numéro owner configuré : ${OWNER_NUMBER}`)
+
+                const answer = await askQuestion(`Lancer la génération du pairing code pour ce numéro ? (O/n) : `)
+                const refused = answer.trim().toLowerCase().startsWith('n')
+
+                if (refused) {
+                    console.log('❌ Connexion annulée. Relancez le bot quand vous serez prêt.\n')
+                    rl.close()
+                    return
+                }
+
+                console.log(`📱 Demande du pairing code pour ${OWNER_NUMBER}...\n`)
+
+                try {
+                    const code = await new Promise(async (resolve, reject) => {
+                        const timeout = setTimeout(() => {
+                            reject(new Error('Timeout: code non reçu dans les 30 secondes'))
+                        }, 30_000)
+
+                        await startBot(OWNER_NUMBER, {
+                            usePairingCode: true,
+                            resolveCode: (c) => { clearTimeout(timeout); resolve(c) },
+                            resolveError: (e) => { clearTimeout(timeout); reject(e) },
+                        })
+                    })
+
+                    console.log('\n┌──────────────────────────────┐')
+                    console.log(`│   CODE DE COUPLAGE : ${code}   │`)
+                    console.log('└──────────────────────────────┘')
+                    console.log('Entrez ce code dans WhatsApp : Paramètres > Appareils connectés > Connecter un appareil > Connecter avec un numéro de téléphone\n')
+                } catch (err) {
+                    addLog(`❌ Erreur génération pairing code: ${err.message}`)
+                }
+
+                rl.close()
             }
         } catch (err) {
             addLog(`❌ Erreur démarrage owner: ${err.message}`)
