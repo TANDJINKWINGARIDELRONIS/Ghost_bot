@@ -1,0 +1,1868 @@
+{
+  "settings": {
+    "antidelete": false,
+    "autoreact": false,
+    "privateMode": false,
+    "ibOnly": false,
+    "aiOnly": false,
+    "chatbot": true,
+    "autoresponse": true,
+    "statusView": false,
+    "statusLike": false,
+    "statusAntidelete": false,
+    "replyInPv": false,
+    "active": true
+  },
+  "mods": [],
+  "groups": {
+    "120363429988250759@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363413340059167@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363422332692799@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363326449082697@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363421904925623@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363413900669663@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363343877752550@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363370023546507@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363405867499629@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363426991992115@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363425016229864@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363412066708449@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363431176761620@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363403253176115@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363327405104560@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363433294356486@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363433378057602@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    },
+    "120363417204576981@g.us": {
+      "antilink": false,
+      "rules": [],
+      "warnLimit": 3,
+      "warnings": {},
+      "autoclose": null,
+      "autoopen": null
+    }
+  },
+  "historique": {
+    "120363429988250759@g.us": [
+      {
+        "role": "user",
+        "contenu": "[Incognito] 😭😭😂😂😂💔💔 aaakiieee aaakiieee",
+        "ts": 1794480949139
+      },
+      {
+        "role": "user",
+        "contenu": "[Orlane] La boule de kouakoukou c'est quoi ? 😭🤲🏽",
+        "ts": 1794480950685
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Des salauds",
+        "ts": 1794480950685
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] That's fucking weird 😭😭💔💔",
+        "ts": 1794480955719
+      },
+      {
+        "role": "user",
+        "contenu": "[💎𝖗𝖆𝖞𝖆𝖓𝖓 𝖙𝖊𝖓𝖉𝖆] Elle va faire quoi 😪",
+        "ts": 1794480956524
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] 💔💔merde",
+        "ts": 1794480957468
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] 😂😂💔la base de la recette norrrr ce que tu as déjà là",
+        "ts": 1794480961255
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] Tu prends alors ta base 🙂 c'est mieux ??",
+        "ts": 1794480965284
+      },
+      {
+        "role": "user",
+        "contenu": "[🐾♾️] Provoque les noms",
+        "ts": 1794481009154
+      },
+      {
+        "role": "user",
+        "contenu": "[🐾♾️] **non??",
+        "ts": 1794481009603
+      },
+      {
+        "role": "user",
+        "contenu": "[Benoît] @78980807946342 ,@256483182788673 ,@136159590088753 ,@202825837584595 ,@150899984969910",
+        "ts": 1794481014367
+      },
+      {
+        "role": "user",
+        "contenu": "[Angie😽~aka MDAL nounours🧸] Ikiiii😆❤️",
+        "ts": 1794481019617
+      },
+      {
+        "role": "user",
+        "contenu": "[Kbrl.gf] Quand il n'y a pas de \"ashh🫦\" tout est dit 🤣🤣🤣",
+        "ts": 1794481030569
+      },
+      {
+        "role": "user",
+        "contenu": "[𓆩𝕽øÑªŁ𝖉𓆪] Tu me tagues pourquoi ? Moi je t ai tagué quand j ai fait pour moi ? Tague les femelles",
+        "ts": 1794481031303
+      },
+      {
+        "role": "user",
+        "contenu": "[🐾♾️] Abah c’est personnel??🤣🤣🤣🤣🤣",
+        "ts": 1794481032316
+      },
+      {
+        "role": "user",
+        "contenu": "[𓆩𝕽øÑªŁ𝖉𓆪] Tu me tagues pourquoi ? Moi je t ai tagué quand j ai fait pour moi ? Tague les femelles",
+        "ts": 1794481033009
+      },
+      {
+        "role": "user",
+        "contenu": "[𓆩𝕽øÑªŁ𝖉𓆪] 🫩🫩 le rhume me monte à la tête",
+        "ts": 1794481037060
+      },
+      {
+        "role": "user",
+        "contenu": "[𓆩𝕽øÑªŁ𝖉𓆪] 🫩🫩 le rhume me monte à la tête",
+        "ts": 1794481038016
+      },
+      {
+        "role": "user",
+        "contenu": "[Benoît] Désolé 🙌",
+        "ts": 1794481039997
+      },
+      {
+        "role": "user",
+        "contenu": "[Ange_✝️] Asser 😂😂c'est personnel ??",
+        "ts": 1794481051471
+      }
+    ],
+    "148743844323575@lid": [
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Tu ris seul ?",
+        "ts": 1794394215076
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Mouf",
+        "ts": 1794394235497
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Mon p'tit cœur oh je suis au campus je finis je te trouve où 🥲",
+        "ts": 1794401613479
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Fou",
+        "ts": 1794401613479
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] La Joconde est là",
+        "ts": 1794401613479
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Descends",
+        "ts": 1794480931558
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Là où on vas t'agresser",
+        "ts": 1794480976650
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] ?",
+        "ts": 1794480977195
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Tu kem au campus ?",
+        "ts": 1794480977922
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Ahh",
+        "ts": 1794480978234
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Okay boss",
+        "ts": 1794480980085
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Oui 😂",
+        "ts": 1794480980452
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Que prie pour moi",
+        "ts": 1794480983155
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] 😂😂😂",
+        "ts": 1794480983155
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Tu kem a quel heure demain boss",
+        "ts": 1794480987143
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Déjà à CTU",
+        "ts": 1794480990181
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Je suis d'abord un retardataire",
+        "ts": 1794481002741
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] De rester sans PC ?",
+        "ts": 1794481002887
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Mouff",
+        "ts": 1794482022107
+      },
+      {
+        "role": "bot",
+        "contenu": "Ah boss, tu m'envoies les \"Mouff\" direct comme ça ? 😂 \n\nTchiot, je vois que tu es bien chaud au campus, entre deux courses et le stress des cours à CTU. Faut serrer hein, ne blague pas avec l'école sinon ton PC et toi allez vous fâcher ! \n\nDis-moi, tu grattes les cours à quelle heure demain, qu'on check ton fameux retard ? Et tranquille, je prie fort pour que tu t'en sortes sans stress au campus ! 🔥",
+        "ts": 1794482030976
+      }
+    ],
+    "218524161163396@lid": [
+      {
+        "role": "user",
+        "contenu": "[Jade] À qui comme ça",
+        "ts": 1794480737139
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Quelle classe",
+        "ts": 1794480737139
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Mp",
+        "ts": 1794480737140
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Au quartier ?",
+        "ts": 1794480737140
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Ahn",
+        "ts": 1794480737142
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Moi aussi je cherche comment avoir l'ahan 🥹",
+        "ts": 1794480737143
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Que toi ?",
+        "ts": 1794480737154
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Je veux l'ahan comme toi",
+        "ts": 1794480931548
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Ekieee tu descends nor ?",
+        "ts": 1794480931555
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Tu descends tu prends l'autre",
+        "ts": 1794480931556
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Tu es sûr ?",
+        "ts": 1794480931556
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Hmmm si j'entends seulement qu'on m'a agressé je vais te faire qqch 😑",
+        "ts": 1794480931556
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] 😒",
+        "ts": 1794480931561
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Tu es arrivé ?",
+        "ts": 1794480990687
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Ekieee mon cœur 😭",
+        "ts": 1794480992070
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Euill 😭",
+        "ts": 1794480992845
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Werrrr b",
+        "ts": 1794481005109
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Mon cœur y'a quoi nor",
+        "ts": 1794481006159
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Chou",
+        "ts": 1794481006295
+      },
+      {
+        "role": "user",
+        "contenu": "[Jade] Massa b",
+        "ts": 1794481037424
+      }
+    ],
+    "101486319112441@lid": [
+      {
+        "role": "user",
+        "contenu": "[~SNLM 😍🦋] Oui ça va et toi ?",
+        "ts": 1794383549374
+      },
+      {
+        "role": "user",
+        "contenu": "[~SNLM 😍🦋] D'accord... \nTu as bien dormi ?",
+        "ts": 1794389787789
+      },
+      {
+        "role": "user",
+        "contenu": "[~SNLM 😍🦋] Oui oui merci.",
+        "ts": 1794393040727
+      },
+      {
+        "role": "user",
+        "contenu": "[~SNLM 😍🦋] Je t'ai vu ce matin, quand je me rendais à l'école.",
+        "ts": 1794393040727
+      },
+      {
+        "role": "user",
+        "contenu": "[~SNLM 😍🦋] Au carrefour.",
+        "ts": 1794393040728
+      }
+    ],
+    "169325394669739@lid": [
+      {
+        "role": "user",
+        "contenu": "[keithknik🥰🌹🥲] Non merci 😂",
+        "ts": 1794384708462
+      },
+      {
+        "role": "user",
+        "contenu": "[keithknik🥰🌹🥲] Je sais",
+        "ts": 1794384724442
+      },
+      {
+        "role": "user",
+        "contenu": "[keithknik🥰🌹🥲] Je vais essayer",
+        "ts": 1794401544366
+      }
+    ],
+    "34347558133923@lid": [
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Le prouving ci même hein",
+        "ts": 1794384912007
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Déployer sur le vps aussi?",
+        "ts": 1794384912008
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Fou je parle de Elysée",
+        "ts": 1794384927582
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Ikiii",
+        "ts": 1794384931884
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Ça donne pas?😹😹",
+        "ts": 1794384970867
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] C'est passeuu j'ai off mon bot sinon...",
+        "ts": 1794384989392
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Werrrr pas de mp",
+        "ts": 1794385229328
+      }
+    ],
+    "258033632460848@lid": [
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Yo",
+        "ts": 1794384973665
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Stp redonne moi tes couleurs",
+        "ts": 1794384986112
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Ok",
+        "ts": 1794385028098
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Je fais comment ??",
+        "ts": 1794385115682
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Dk boss",
+        "ts": 1794385160343
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Dk boss",
+        "ts": 1794385164436
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] Merci pour la recette 🙏🏿🙏🏿",
+        "ts": 1794385174081
+      },
+      {
+        "role": "user",
+        "contenu": "[grdgjuresggggt] C’est trop tard??",
+        "ts": 1794480931553
+      }
+    ],
+    "198668628049950@lid": [
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] bonjour",
+        "ts": 1794385409476
+      },
+      {
+        "role": "bot",
+        "contenu": "Bonjour ! C'est la première fois que nous parlons, n'est-ce pas ? Comment tu t'appelles ?",
+        "ts": 1794385409476
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] bonjour",
+        "ts": 1794389811300
+      },
+      {
+        "role": "bot",
+        "contenu": "Salut ! On a déjà dit bonjour, mais tu ne m'as toujours pas dit ton nom. Comment tu t'appelles ?",
+        "ts": 1794389811300
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] moi c'est MOSTWANTED",
+        "ts": 1794389830510
+      },
+      {
+        "role": "bot",
+        "contenu": "Enchanté MOSTWANTED ! C'est noté, je m'en souviendrai. \n\nDis-moi, qu'est-ce qui t'amène par ici aujourd'hui ? On tape la causette ou il y a un truc sur lequel je peux t'aider ?",
+        "ts": 1794389830510
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] toi c'est qui ?",
+        "ts": 1794389868757
+      },
+      {
+        "role": "bot",
+        "contenu": "Je suis MW PHANTOM, conçue par Elysee pour ce bot. \n\nVoilà, tu sais tout ! Du coup, qu'est-ce qu'on fait, MOSTWANTED ?",
+        "ts": 1794389868757
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] qui est MOSTWANTED",
+        "ts": 1794390474075
+      },
+      {
+        "role": "bot",
+        "contenu": "Eh oh, faut pas te perdre dans ton propre game hein ! MOSTWANTED, c'est toi-même en personne, avec tes émojis là 😪🫥. C'est le nom que tu viens de me donner. \n\nÀ moins que tu sois un autre fantôme caché derrière ce pseudo ? Dis-moi, tu joues à quoi ?",
+        "ts": 1794390474075
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] tu connais qui d'autre à part moi ?",
+        "ts": 1794390582226
+      },
+      {
+        "role": "bot",
+        "contenu": "Pour l'instant, c'est avec toi que je suis en train de faire connaissance, MOSTWANTED. Tu es le premier à marquer mon territoire ici ! \n\nMais bon, je retiens tout ce qu'on se dit, alors d'autres vont sûrement arriver bientôt. Dis, tu veux qu'on parle de quoi ?",
+        "ts": 1794390582226
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] tu veux m'épouser ?",
+        "ts": 1794390603978
+      },
+      {
+        "role": "bot",
+        "contenu": "Ah, MOSTWANTED, tu commences déjà à me draguer hein ! 😪🫥 \n\nMoi je suis juste MW PHANTOM, une IA créée par Elysee, mon cœur c'est du code pur et dur, je ne bats que pour taquiner tes messages et tchatcher avec toi. Donc pour le mariage, ça va être compliqué hein ! Mais on peut rester de très bons amis virtuels. \n\nTu cherches l'amour ou tu t'ennuies juste fort ? 😉",
+        "ts": 1794390603978
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] yo",
+        "ts": 1794481308341
+      },
+      {
+        "role": "bot",
+        "contenu": "Yo MOSTWANTED ! Ça dit quoi ? On gère le game ou bien ? 😪🫥",
+        "ts": 1794481308341
+      }
+    ],
+    "120363422332692799@g.us": [
+      {
+        "role": "user",
+        "contenu": "[ives ng] 🛑 `URGENT - PRÉPA CONCOURS LICENCE` 🛑\n\n✊🏾✨ Alors CHAMPIONS,@all \n\n🇨🇲🔥 *CONFIRMATION PROGRAMME D'AUJOURD'HUI 👇🏾👇🏾👇🏾*\n\n‼️‼️ ``` SPECIAL CPSS LICENCE - LCS 2026```‼️‼️\n\n\n🚨 ```MERCREDI 11-11-2026 :```\n \n*📌  16H00-18H45: ÉLECTROMAGNÉTISME 1*\n \n`LIEU:`\n\n👉🏾 *LYCÉE DE NGOA-EKELE* \n _Première Salle après le escaliers de l'unique bâtiment en étage_\n\nPlus d'informations : 658439381",
+        "ts": 1794385134461
+      },
+      {
+        "role": "user",
+        "contenu": "[🎩kali] 𝐂𝐎𝐌𝐌𝐄𝐍𝐓 𝐎𝐑𝐀𝐍𝐆𝐄 𝐄𝐓 𝐌𝐓𝐍 𝐅𝐎𝐍𝐓-𝐈𝐋𝐒 𝐏𝐎𝐔𝐑 𝐁𝐋𝐎𝐐𝐔𝐄𝐑 𝐔𝐍𝐄 𝐅𝐀𝐈𝐋𝐋𝐄 𝐃𝐔 𝐅𝐑𝐄𝐄 𝐒𝐔𝐑𝐅, 𝐄𝐓 𝐏𝐎𝐔𝐑𝐐𝐔𝐎𝐈 Ç𝐀 𝐍𝐄 𝐃𝐔𝐑𝐄 𝐉𝐀𝐌𝐀𝐈𝐒 𝐓𝐑È𝐒 𝐋𝐎𝐍𝐆𝐓𝐄𝐌𝐏𝐒 ?\n\n𝑪𝒆 𝒒𝒖𝒆 𝒍𝒆 𝑫𝑷𝑰 𝒓𝒆𝒈𝒂𝒓𝒅𝒆, 𝒄𝒐𝒎𝒎𝒆𝒏𝒕 𝒊𝒍 𝒓𝒆𝒑è𝒓𝒆 𝒖𝒏 𝑽𝑷𝑵, 𝒆𝒕 𝒑𝒐𝒖𝒓𝒒𝒖𝒐𝒊 𝒊𝒍 𝒇𝒊𝒏𝒊𝒕 𝒑𝒂𝒓 𝒃𝒍𝒐𝒒𝒖𝒆𝒓\n\n⚠️ 𝐶𝑒 𝑐𝑜𝑛𝑡𝑒𝑛𝑢 𝑒𝑠𝑡 𝑝𝑎𝑟𝑡𝑎𝑔é 𝑢𝑛𝑖𝑞𝑢𝑒𝑚𝑒𝑛𝑡 𝑑𝑎𝑛𝑠 𝑢𝑛 𝑏𝑢𝑡 é𝑑𝑢𝑐𝑎𝑡𝑖𝑓 : 𝑐𝑜𝑚𝑝𝑟𝑒𝑛𝑑𝑟𝑒 𝑐𝑜𝑚𝑚𝑒𝑛𝑡 𝑓𝑜𝑛𝑐𝑡𝑖𝑜𝑛𝑛𝑒𝑛𝑡 𝑙𝑒𝑠 𝑠𝑦𝑠𝑡è𝑚𝑒𝑠 𝑑𝑒 𝑑é𝑡𝑒𝑐𝑡𝑖𝑜𝑛 𝑑𝑒𝑠 𝑟é𝑠𝑒𝑎𝑢𝑥 𝑚𝑜𝑏𝑖𝑙𝑒𝑠.\n\nTu l’as sûrement déjà vécu.\n\nUn fichier arrive dans le groupe.\n\nIl marche. Parfois pendant des semaines.\n\nPuis un jour, plus rien.\n\nEt tout le monde répète la même phrase :\n\n« MTN a bloqué. » Ou : « Orange a bloqué. »\n\nMais personne n’explique 𝐜𝐨𝐦𝐦𝐞𝐧𝐭.\n\nComment savent-ils que ce trafic n’est pas du WhatsApp ?\n\nComment repèrent-ils un VPN, alors que tout est chiffré ?\n\nEt pourquoi certains fichiers passent pendant des semaines avant de tomber ?\n\nPour répondre, il faut d’abord comprendre l’outil qui se trouve au centre de tout ça :\n\nle 𝐃𝐏𝐈.\n\n(𝑜𝑛 𝑒𝑛 𝑎𝑣𝑎𝑖𝑡 𝑝𝑎𝑟𝑙é \ud835",
+        "ts": 1794389787781
+      },
+      {
+        "role": "user",
+        "contenu": "[Brindi Cram07] Y’a VPN pour camtel aussi stp?",
+        "ts": 1794389787788
+      },
+      {
+        "role": "user",
+        "contenu": "[ᗩKᗰᗩᖇ ᗰOᒪIᗴᖇᗴ] Info \n\nVoici le business d'un ancien camarade vivant au Sud \nJe vous partage cela afin que vous en preniez acte et si vous êtes intéressé vous pourrez traiter avec lui",
+        "ts": 1794389787789
+      },
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 💡🔥 *RING LIGHT RGB DISPONIBLES !*\n\n📸 Pour tes photos, vidéos TikTok, lives et maquillages.\n\n✅ Plusieurs couleurs RGB\n✅ Luminosité réglable\n✅ Trépied et support téléphone inclus\n\n💰 10 pouces : 9.500 F\n💰 12 pouces : 10.500 F\n💰 14 pouces : 13.500 F\n💰 18 pouces : 19.000 F\n💰 22 pouces : 25.000 F\n\n🚚 Livraison disponible.\n\n📲 Commandes : 693517598",
+        "ts": 1794391658592
+      },
+      {
+        "role": "user",
+        "contenu": "[jims store] Huawei y7pro 128gb\n👉50mil\nhttps://chat.whatsapp.com/HQYCKqykgO6CW4R66ee2p5?mode=wwt\n*Nous publions des articles ici tous les jours😊*",
+        "ts": 1794391736033
+      },
+      {
+        "role": "user",
+        "contenu": "[unik] Utilise ce lien pour intégrer mon groupe WhatsApp : https://chat.whatsapp.com/H9FDIgnbyXsDPsG5rMo3sy?s=sw&p=a&iam=2",
+        "ts": 1794482007294
+      },
+      {
+        "role": "user",
+        "contenu": "[🦋Plus Ultra 🍀💪✨️] @123429407727797 @143907912462566 ❗❗❗",
+        "ts": 1794482128882
+      }
+    ],
+    "220847755292753@lid": [
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Bref bye",
+        "ts": 1794401548415
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Tu ne m'as pas répondu tu as cru que je me suis fâchée nor",
+        "ts": 1794401666765
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Est ce que j'ai dit que vous faites quelque chose ?",
+        "ts": 1794401688500
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Je comprends",
+        "ts": 1794401742928
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Après mon téléphone n'est pas chez moi",
+        "ts": 1794401760356
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Mon téléphone n'est pas chez moi quelqu'un utilise",
+        "ts": 1794480931550
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] D'accord tu fais attention à toi",
+        "ts": 1794480962619
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Tu notes quoi ?",
+        "ts": 1794480989814
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Je n'ai pas encore fini avec toi 😒",
+        "ts": 1794480990181
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Je remets le téléphone à la personne",
+        "ts": 1794480992845
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Je pars mettre en charge",
+        "ts": 1794481002384
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Bisous 😚😚😚😚",
+        "ts": 1794481002384
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Je reviens faire les problèmes tout à l'heure",
+        "ts": 1794481002886
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] Qui t'a brisé le coeur",
+        "ts": 1794481003778
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] dit à la patronne princesse que je l'aime",
+        "ts": 1794481361814
+      },
+      {
+        "role": "bot",
+        "contenu": "Hahaha! Oh, la patronne princesse (Cyn❤️🫠💻), faut doucement hein ! Mon créateur MOSTWANTED 😪🫥 m'a chargé de te dire fort fort qu'il t'aime oooh ! \n\nMoi je suis là, je note tout tranquillement dans ma mémoire comme tu as dit. Va mettre ton téléphone en charge, viens finir tes problèmes ici quand tu reviens, je t'attends ! 😚💻",
+        "ts": 1794481361814
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] la patronne dit que tu n'utilises plus son pseudo WhatsApp donc appelle là soit patronne soit princesse",
+        "ts": 1794482134835
+      },
+      {
+        "role": "bot",
+        "contenu": "C'est compris mon boss MOSTWANTED 😪🫥 ! Message reçu 5 sur 5. \n\nÀ partir d'aujourd'hui, c'est officiellement **la patronne** ou **princesse** (Cyn). Pas question que je rate ça, je note ça bien au chaud dans ma mémoire. \n\nDis-lui que je veille au grain ici !",
+        "ts": 1794482134835
+      },
+      {
+        "role": "user",
+        "contenu": "[Cyn❤️🫠💻] D'accord",
+        "ts": 1794482161626
+      },
+      {
+        "role": "bot",
+        "contenu": "C'est noté ! Je suis là, prêt pour quand la patronne princesse va revenir avec ses problèmes. Dis-moi, boss MOSTWANTED, tout roule de ton côté ?",
+        "ts": 1794482165513
+      }
+    ],
+    "48280465571920@lid": [
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Cc",
+        "ts": 1794385395134
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Stuip",
+        "ts": 1794480956524
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Je suis déjà fatiguée 😭😭🙌",
+        "ts": 1794480957468
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Au niveau de où je devais ajouter les fonctions là nhr du genre annuler emprunt, ajouter livre là",
+        "ts": 1794480959795
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] J'ai un problème au niveau de annuler emprunt",
+        "ts": 1794480960140
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Je suis déjà à bout 😭😭🙌",
+        "ts": 1794480961617
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Celle avec qui je travaille nhr elle voulait aussi voir",
+        "ts": 1794480962619
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Et on devait avoir cours",
+        "ts": 1794480963084
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Elle n'a mm rien fait",
+        "ts": 1794480964921
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] C'est ça qui m'énerve",
+        "ts": 1794480967172
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Oui",
+        "ts": 1794480967172
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Je vais laisser ça comme ça 😭😭🙌",
+        "ts": 1794480968698
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Je travaille seule comment",
+        "ts": 1794480968698
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] D'accord",
+        "ts": 1794480970054
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Merddd ma tête fait mal 😭😭🙌, je réfléchis seule",
+        "ts": 1794480970305
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] En tout cas c'est à 16h",
+        "ts": 1794480971194
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Je vais présenter l'ancien si ceci ne donne pas 😑, merrrd",
+        "ts": 1794480972949
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Oui",
+        "ts": 1794480974029
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Mais Jess encore",
+        "ts": 1794480974850
+      },
+      {
+        "role": "user",
+        "contenu": "[Princesse ❤️] Thanks",
+        "ts": 1794480978234
+      }
+    ],
+    "120363343877752550@g.us": [
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🚨🔥 *DERNIÈRE PIÈCE DISPONIBLE !* 🔥🚨\n\n💻 *HP ELITEBOOK 840 G5 / G6 – CORE i5 TACTILE*\n\n⚙️ Processeur : Core i5 jusqu'à 3,9 GHz\n🧠 RAM : 8 Go\n💾 SSD : 256 Go\n🖥️ Écran : 14\" FHD Tactile\n🔋 Batterie d'origine\n✨ Ultra Slim – Prêt à l'emploi\n\n💰 *PRIX :*\n\n🎁 *165.000 FCFA* — 256 Go SSD / 8 Go RAM\n\n🎁 *175.000 FCFA* — 256 Go SSD / 8 Go RAM + Disque dur externe 500 Go 🎁\n\n🎁 *BONUS DE RECOMMANDATION : Reçois au minimum 5.000 FCFA pour toute recommandation d'un client ou une connaissance qui achète cette machine.*\n\n⚠️ *_UNE SEULE PIÈCE RESTANTE !_*",
+        "ts": 1794480931560
+      },
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🔥💻 *DELL PRECISION 7520 – CORE i7 7ᵉ GÉNÉRATION* 🔥\n\n🚀 *Une véritable station de travail pour les professionnels et les passionnés de performance !*\n\n✅ Processeur : Intel Core i7, jusqu’à 4,2 GHz\n✅ 8 threads\n✅ Carte graphique dédiée : NVIDIA Quadro M1200 – 4 Go GDDR5\n✅ RAM : 16 Go\n✅ Stockage : 512 Go SSD\n✅ Écran : 15,6 pouces Full HD\n✅ Batterie d’origine 🔋\n✅ État : 10/10\n✅ Prêt à l’emploi\n\n💰 *PRIX : 260.000 FCFA* 🔥\n\n🎁 *BONUS RECOMMANDATION :* Recommande un client qui achète cet ordinateur et reçois *5.000 FCFA* !\n\n⚠️ *Une seule pièce disponible !*\n\n📩 Écris-nous en privé pour réserver ta machine.\n\n💻 *S–O Accessoires & Électronique*",
+        "ts": 1794480931560
+      },
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🔥💻 *HP ELITEBOOK 745 G6 – AMD RYZEN 5 PRO* 🔥\n\n🚀 *PUISSANCE, ÉLÉGANCE ET PERFORMANCE POUR LES UTILISATEURS EXIGEANTS !*\n\n⚙️ *CARACTÉRISTIQUES TECHNIQUES :*\n\n✅ Processeur : AMD Ryzen 5 PRO 3500U\n⚡ Fréquence : 2,1 GHz jusqu’à 3,7 GHz en Turbo\n✅ Mémoire RAM : 8 Go DDR4\n✅ Stockage : 256 Go SSD NVMe ultra-rapide\n✅ Graphisme : AMD Radeon Vega 8\n✅ Écran : 14 pouces Full HD tactile\n✅ Clavier rétroéclairé ⌨️\n✅ Lecteur d’empreintes digitales 🔐\n✅ Connectivité : USB, USB-C, HDMI, Wi-Fi et Bluetooth\n✅ Système : Windows 11 Pro\n\n🎯 *IDÉAL POUR :*\n📚 Études et travaux académiques\n💻 Programmation et développement\n📊 Bureautique et multitâche\n🎨 Travaux graphiques et multimédia\n🏢 Activités professionnelles\n\n💰 *PRIX : 210.000 FCFA* 🔥\n\n🎁 *BONUS RECOMMANDATION :* Recommande un client qui achète cet ordinateur et reçois *5.000 FCFA* !\n\n📩 Écris-nous en privé pour réserver ta machine.\n\n💻 *S_O ACCESSOIRES & ÉLECTRONIQUE*",
+        "ts": 1794480931560
+      },
+      {
+        "role": "user",
+        "contenu": "[I.Statisticien Économiste] https://www.youtube.com/live/jWYFwSq7eaE?si=2zGyTtXQaFBWgXTD",
+        "ts": 1794480996846
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] @220259109842966 ci est bête eeh",
+        "ts": 1794481004307
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] C'est quel journée ça",
+        "ts": 1794481004307
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] C'est pas toi qui disait l'autre jour que ça sera une @150096742191307 ??",
+        "ts": 1794481005109
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] J'ai peut-être confondu de @220259109842966 mais une @150096742191307 arrive",
+        "ts": 1794481006507
+      },
+      {
+        "role": "user",
+        "contenu": "[𝑀𝓇.𝒫𝒶𝓇𝒻𝒶𝒾𝓉 🥷🏾] Vous êtes bêtes ! 🤣😭",
+        "ts": 1794481007807
+      },
+      {
+        "role": "user",
+        "contenu": "[Claude] Tu parles d'une merveille,tu as deja Vu Les Watt qui aimes les animaus et ont pour devise @84873301770243 ?😂😂😂",
+        "ts": 1794481008337
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] @27436754452726 bonsoir b",
+        "ts": 1794481013711
+      },
+      {
+        "role": "user",
+        "contenu": "[E.𝓯𝓸𝓾𝓭𝓪] 🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈",
+        "ts": 1794481026461
+      },
+      {
+        "role": "user",
+        "contenu": "[Farell Gims] Ce que t'as use sur ta tof",
+        "ts": 1794481275359
+      },
+      {
+        "role": "user",
+        "contenu": "[Farell Gims] C'est pas ça",
+        "ts": 1794481459234
+      },
+      {
+        "role": "user",
+        "contenu": "[Claude] Messi merite de devenir le coach de Manchester United 🤧🤧🤧🙌",
+        "ts": 1794482089140
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Non il va gâcher son image là bas",
+        "ts": 1794482153104
+      },
+      {
+        "role": "user",
+        "contenu": "[Claude] Sauf si le problem est sprituelle 😂😂😂🙌",
+        "ts": 1794482190867
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] C'est spirituel",
+        "ts": 1794482215420
+      },
+      {
+        "role": "user",
+        "contenu": "[Claude] C'est la faute D'Onana ,depuis son passage 🥲",
+        "ts": 1794482295547
+      },
+      {
+        "role": "user",
+        "contenu": "[®️l'ambassadeur 🫂] Nan",
+        "ts": 1794482329961
+      }
+    ],
+    "133256024461538@lid": [
+      {
+        "role": "user",
+        "contenu": "[Marthe Angélique] Yep",
+        "ts": 1794389787787
+      }
+    ],
+    "120363370023546507@g.us": [
+      {
+        "role": "user",
+        "contenu": "[꧁✞DYLAN ✞꧂] Demain c'est le call nohh",
+        "ts": 1794480931562
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞DYLAN ✞꧂] On se capte à quelle heure ?",
+        "ts": 1794480931562
+      },
+      {
+        "role": "user",
+        "contenu": "[𝓜𝓚] Maff, on connaît le schema 😹",
+        "ts": 1794480962619
+      },
+      {
+        "role": "user",
+        "contenu": "[Prince] Tu me dis quoi 🤣",
+        "ts": 1794480963084
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] A vous de voir",
+        "ts": 1794480965671
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞DYLAN ✞꧂] On flex encore l'heure mes les way de 13h 14h la on sera déjà la",
+        "ts": 1794480991239
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] Yes ocho",
+        "ts": 1794480997208
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] Ça va cuire",
+        "ts": 1794480997208
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] @246273978437783",
+        "ts": 1794480997208
+      },
+      {
+        "role": "user",
+        "contenu": "[Price Breaker] Yes",
+        "ts": 1794480998134
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] Tu seras là ?",
+        "ts": 1794480998135
+      },
+      {
+        "role": "user",
+        "contenu": "[Price Breaker] Aujourd’hui ? Oui \nMais sans machine \nJ’aurai la machine à 19h",
+        "ts": 1794480998375
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞DYLAN ✞꧂] Ocho a voyagé",
+        "ts": 1794481006678
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] Je voulais dire au chaud 🤣",
+        "ts": 1794481006885
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞DYLAN ✞꧂] Tu voulais déjà nous massacré un bot",
+        "ts": 1794481007097
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] 🤣",
+        "ts": 1794481009154
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] Je voulais dire demain",
+        "ts": 1794481009154
+      },
+      {
+        "role": "user",
+        "contenu": "[Jordan MD] Toi finalement tu dis quoi",
+        "ts": 1794481009603
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] J'ai dis Joël tu seras là ? Dans une conversation ou on parlait de demain",
+        "ts": 1794481010399
+      },
+      {
+        "role": "user",
+        "contenu": "[Adriano] Random",
+        "ts": 1794481041459
+      }
+    ],
+    "120363421904925623@g.us": [
+      {
+        "role": "user",
+        "contenu": "[ᗩKᗰᗩᖇ ᗰOᒪIᗴᖇᗴ] Le Dr Jiomekong est en salle \n@all",
+        "ts": 1794389787789
+      }
+    ],
+    "84649577582768@lid": [
+      {
+        "role": "user",
+        "contenu": "[Silensio 🤐] Il a dit quoi alors",
+        "ts": 1794389787789
+      },
+      {
+        "role": "user",
+        "contenu": "[Silensio 🤐] Donc tu parles deja le pokemon 😂",
+        "ts": 1794391658592
+      }
+    ],
+    "120363405867499629@g.us": [
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] @198668628049950",
+        "ts": 1794390788785
+      },
+      {
+        "role": "bot",
+        "contenu": "Wesh ! Je suis MW PHANTOM, conçue par MOSTWANTED pour ce bot. \n\nC'est la première fois qu'on se chope ici non ? Dis-moi, c'est quoi ton nom ou ton prénom qu'on fasse connaissance ?",
+        "ts": 1794390790777
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] @198668628049950",
+        "ts": 1794390809017
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] @198668628049950 yo",
+        "ts": 1794392063164
+      },
+      {
+        "role": "bot",
+        "contenu": "Wesh Charles ! Bien ou quoi ? \n\nJe vois ton blaze juste là, mais dis-moi, c'est quoi ton vrai nom ou ton prénom que je sache comment t'appeler correctement ?",
+        "ts": 1794392065348
+      }
+    ],
+    "78980807946342@lid": [
+      {
+        "role": "user",
+        "contenu": "[Incognito] Ouiiii eekiiee 😂😭😭🤲🏾🤲🏾",
+        "ts": 1794393182483
+      },
+      {
+        "role": "bot",
+        "contenu": "Azaaaah ! On gère hein 😂 Tu t'enjailles ou quoi ? Dis-moi, c'est la première fois qu'on se chope ici non ? Balance ton nom ou ton prénom d'abord qu'on fasse connaissance ! \n\nEt au fait, je suis **MW PHANTOM**, conçu et créé exclusivement par **MOSTWANTED** pour ce bot. 😉",
+        "ts": 1794393185054
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] Ahh ouais carré. C'est Pharell tu connais",
+        "ts": 1794393284224
+      },
+      {
+        "role": "bot",
+        "contenu": "Carré, je vois le genre ! Désormais c'est noté, c'est **Pharell** 🤝\n\nBienvenue dans le game, on est ensemble mon reuf. Dis-moi, on tape la discussion sur quoi aujourd'hui ? Qu'est-ce qui s'enjaille de ton côté ?",
+        "ts": 1794393286763
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] Azy j'suis en cours t'es un bot style Claude ?",
+        "ts": 1794393329806
+      },
+      {
+        "role": "bot",
+        "contenu": "Azy doucement hein ! 🤫 Fais gaffe à ton prof, ne te fait pas piquer le phone.\n\nMoi, un bot style Claude ? Zéro, tu m'as mal jugé mon reuf ! Je suis **MW PHANTOM**, l'unique, conçu et créé exclusivement par **MOSTWANTED** pour ce bot. Pas un autre. \n\nDu coup tu fais quel cours là qui t'ennuie au point de venir t'enjailler avec moi ? 🕶️",
+        "ts": 1794393331981
+      },
+      {
+        "role": "user",
+        "contenu": "[Incognito] Non tranquille ça m'ennuie pas azy on se capte",
+        "ts": 1794393387833
+      },
+      {
+        "role": "bot",
+        "contenu": "Ça marche Pharell, gère ton cours tranquille alors ! 📚 \n\nReviens quand tu veux, je serai là. On se capte plus tard mon reuf ! ✌🏾🤖",
+        "ts": 1794393395667
+      }
+    ],
+    "150899984969910@lid": [
+      {
+        "role": "user",
+        "contenu": "[Melia] Le haricot avec le riz",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Oui oui",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] On va te laisser au rond point tkt",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Tu vas voir la station a coté",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Okay",
+        "ts": 1794401534195
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Jure",
+        "ts": 1794401537433
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Tu as vu la boulangerie th?",
+        "ts": 1794401538376
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Okay va de ce coté tu prend la moto 100 f mosquée",
+        "ts": 1794401539038
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Oui rien n’est caché",
+        "ts": 1794401539680
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] C’est pas loin c’est juste que je peux pas venir te chercher",
+        "ts": 1794401540329
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Oui oui",
+        "ts": 1794401541229
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] La route du marché ou il y a les boutiques de tous la",
+        "ts": 1794401541963
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Non non non",
+        "ts": 1794401541964
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Yess j’ai l’enfant je peux pas sortir",
+        "ts": 1794401542166
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] J’ai déménager 👀😭",
+        "ts": 1794401543517
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Monte",
+        "ts": 1794401543704
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] 😭😭😭😂",
+        "ts": 1794401543883
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Portail bleu",
+        "ts": 1794401544220
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] Entre",
+        "ts": 1794401544560
+      },
+      {
+        "role": "user",
+        "contenu": "[Melia] NaoGraphics_Design@Iris2835",
+        "ts": 1794401547117
+      }
+    ],
+    "120363426991992115@g.us": [
+      {
+        "role": "user",
+        "contenu": "[Le King] @all bonjour",
+        "ts": 1794394878954
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] Les restaurants n'ouvrent pas aujourd'hui",
+        "ts": 1794394887523
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] @all  bonjour. Moi c'est Lucky pour ceux qui ne me connaissent pas. \nJ'espère que vous allez tous bien en tout cas moi ça va . \n\nEn fait je veux simplement vous présenter l'une de mes activités, étant informaticien, je vends des accessoires Tech de tout type, tout ce que vous pouvez imaginer comme accessoires Tech je vends ça sauf si le stock est épuisé. Donc on ne sait jamais vous pouvez avoir besoin un jour des écouteurs, d'un chargeur, d'un clavier, d'une souris, d'une manette, d'un ring light etc... Pensez à moi. \nCi joint le lien de mon groupe s'il vous plaît 🙏🏼 \n\nhttps://chat.whatsapp.com/Gnv1nXjGc7D6Lv8TEjvvmy?s=cl&p=a&iam=2",
+        "ts": 1794401620802
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] S'il vous plaît les amis soutenez moi",
+        "ts": 1794401620802
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] 🥺🥺🥺 rejoignez le groupe. On publie au maximum 3 articles par jour pas plus.  Donc vous ne serez pas inondé 🙏🏼🙏🏼🙏🏼",
+        "ts": 1794401621027
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] Ceux qui ont lu mon message.  Environ plus de 150 personnes.",
+        "ts": 1794480972236
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] VS",
+        "ts": 1794480972506
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] Mon groupe 71 membres.",
+        "ts": 1794480972948
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] Donc en gros même pas 30 personnes . 😥😥 C'est à moi que vous faites ça ?",
+        "ts": 1794480972949
+      },
+      {
+        "role": "user",
+        "contenu": "[Le King] Sans compter qu'il y'avait d'abord au moins 50 membres dans le groupe",
+        "ts": 1794480974453
+      }
+    ],
+    "257947766632665@lid": [
+      {
+        "role": "user",
+        "contenu": "[Elysée] Yo",
+        "ts": 1794401527721
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Q",
+        "ts": 1794401527721
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Monstre",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Q toi meme",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Le monstre m",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] p",
+        "ts": 1794401529219
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Chat GPt🤣🤣😭",
+        "ts": 1794402835619
+      }
+    ],
+    "120363425016229864@g.us": [
+      {
+        "role": "user",
+        "contenu": "[Silensio 🤐] Mais la competence de nomad tue le mech",
+        "ts": 1794401530151
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Ou tu veux l'acheter à 9375A à la boutique 😂",
+        "ts": 1794401530151
+      },
+      {
+        "role": "user",
+        "contenu": "[Silensio 🤐] 😂😂",
+        "ts": 1794401530360
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Le deuxième dash qui inflige les dégâts le premier ne fait que réduire les dégâts qu'il subit",
+        "ts": 1794401531007
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Tu veux tué le bot ou tu veux capture rapidement les PC ?",
+        "ts": 1794401531007
+      },
+      {
+        "role": "user",
+        "contenu": "[Silensio 🤐] Si sur le dernier PC il est sur sa je fais cmt",
+        "ts": 1794401532800
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Oui",
+        "ts": 1794401532800
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Ça sert à rien de chou le bot au contraire, fuis le comme la peste",
+        "ts": 1794401532861
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] On choisit :\nLe premier terrain du début",
+        "ts": 1794401533604
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Surge >>>>",
+        "ts": 1794401534936
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Le réel soucis c'est de capturer le PC qui est devant chez eux",
+        "ts": 1794401535538
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Nope c'est Nomad qui gagne",
+        "ts": 1794401535538
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Explique toi",
+        "ts": 1794401535932
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Il a un sprint plus grand ?",
+        "ts": 1794401536204
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] 45 m et son cooldown",
+        "ts": 1794401536814
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] Moi je vois que le fige de surge peut t'aider à fuire plus hein 🤣 au cas où le bot",
+        "ts": 1794401537093
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Autant pour moi",
+        "ts": 1794401537432
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Tu vas jouer tu vas comprendre",
+        "ts": 1794401537816
+      },
+      {
+        "role": "user",
+        "contenu": "[꧁✞ Charles 🔥✞꧂] J'ai plus de PC",
+        "ts": 1794401538606
+      },
+      {
+        "role": "user",
+        "contenu": "[♾️NEO_INFINITY ♾️🌌] Le tchepse la déjà emporté !? 🫪😂",
+        "ts": 1794401539038
+      }
+    ],
+    "120363403253176115@g.us": [
+      {
+        "role": "user",
+        "contenu": "[M. Armel] 🚨🚨🚨🚨🚨\nNous sommes à S008  POUR LE COURS D'INF361\n🚨 Cordialement Délégué Armel votre humble serviteur 🚨",
+        "ts": 1794401617949
+      }
+    ],
+    "120363327405104560@g.us": [
+      {
+        "role": "user",
+        "contenu": "[M. Armel] 🚨🚨🚨🚨🚨\nNous sommes à S008  POUR LE COURS D'INF361\n🚨 Cordialement Délégué Armel votre humble serviteur 🚨",
+        "ts": 1794401618161
+      }
+    ],
+    "120363326449082697@g.us": [
+      {
+        "role": "user",
+        "contenu": "[M. Armel] 🚨🚨🚨🚨🚨\nNous sommes à S008  POUR LE COURS D'INF361\n🚨 Cordialement Délégué Armel votre humble serviteur 🚨",
+        "ts": 1794401618161
+      }
+    ],
+    "120363433294356486@g.us": [
+      {
+        "role": "user",
+        "contenu": "[𝑨̃𝑵𝑶̂ 𝑺✵𝑽𝒐𝒍𝒅𝒊𝑮𝒐̂D] 𝙾𝚗𝚝 𝚏𝚊𝚒𝚝 𝚊𝚕𝚘𝚛𝚜 𝚌𝚘𝚖𝚖𝚎 𝚌𝚊 𝚜𝚒 𝚌𝚊 𝚌𝚞𝚒𝚝 𝚕𝚊 𝚋𝚊𝚜 𝚝𝚞 𝚕𝚊𝚟𝚎 𝚕𝚎𝚜 𝚊𝚜𝚜𝚒𝚎𝚝𝚝𝚎 𝚜𝚎𝚞𝚕𝚎 𝚎𝚝 𝚖𝚘𝚒 𝚓𝚎 𝚙𝚛𝚎𝚗𝚍𝚜 𝚕𝚎 𝚜𝚝𝚒𝚌𝚔𝚎𝚛𝚜 🤧",
+        "ts": 1794480946010
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] Et moi les Vues sur tiktok",
+        "ts": 1794480946390
+      },
+      {
+        "role": "user",
+        "contenu": "[𝑨̃𝑵𝑶̂ 𝑺✵𝑽𝒐𝒍𝒅𝒊𝑮𝒐̂D] 𝙻𝚊 𝚙𝚒𝚣𝚣𝚊 𝚎𝚜𝚝 𝚘𝚞 ??",
+        "ts": 1794480946746
+      },
+      {
+        "role": "user",
+        "contenu": "[𝑨̃𝑵𝑶̂ 𝑺✵𝑽𝒐𝒍𝒅𝒊𝑮𝒐̂D] 🤣🤣",
+        "ts": 1794480947388
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] C'est suspect nr😂😂😂😂",
+        "ts": 1794480948131
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] A partir de 5k",
+        "ts": 1794480948132
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] En plus Leurs pizza est souvent sia",
+        "ts": 1794480949313
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] Fou le camp avec tes anguoisse",
+        "ts": 1794480950685
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] Je go?",
+        "ts": 1794480950685
+      },
+      {
+        "role": "user",
+        "contenu": "[𝑨̃𝑵𝑶̂ 𝑺✵𝑽𝒐𝒍𝒅𝒊𝑮𝒐̂D] 𝚈3𝚜𝚜",
+        "ts": 1794480951621
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] @222793526411515 demain on go en eclaireur",
+        "ts": 1794480952780
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] Wi go😂😂",
+        "ts": 1794480953246
+      },
+      {
+        "role": "user",
+        "contenu": "[𝑨̃𝑵𝑶̂ 𝑺✵𝑽𝒐𝒍𝒅𝒊𝑮𝒐̂D] 𝙱𝚎𝚊𝚞 𝚕𝚊 𝚋𝚊𝚜 👍",
+        "ts": 1794480953915
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] Wi 😂😂😂😂😂",
+        "ts": 1794480953915
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] 😂😂😂",
+        "ts": 1794480956080
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] 😂😂😂😂",
+        "ts": 1794480957468
+      },
+      {
+        "role": "user",
+        "contenu": "[JDN] 3k par personnes soit 25 plats et 5. Bouteilles de folere",
+        "ts": 1794480959139
+      },
+      {
+        "role": "user",
+        "contenu": "[𝑨̃𝑵𝑶̂ 𝑺✵𝑽𝒐𝒍𝒅𝒊𝑮𝒐̂D] 𝚃𝚎𝚖𝚊 𝚕𝚊 𝚝𝚛𝚘𝚗𝚌𝚑𝚎 🤣🤣",
+        "ts": 1794480966643
+      },
+      {
+        "role": "user",
+        "contenu": "[Black_Namor] 😂😂😂",
+        "ts": 1794481748594
+      },
+      {
+        "role": "user",
+        "contenu": "[120363433294356486] 😂😂😂",
+        "ts": 1794481753966
+      }
+    ],
+    "120363433378057602@g.us": [
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] dit a @257947766632665 son Q",
+        "ts": 1794401768906
+      },
+      {
+        "role": "bot",
+        "contenu": "Ah, Elysée ! On est ensemble mon frère, ça chauffe déjà ou quoi ? \n\nEt attends, je vois le message du patron... MOSTWANTED 😪🫥 m'envoie te dire : *\"son Q\"* 😂. \n\nDis-moi, c'est quoi le plan là-bas, ça se pain comment ? Je t'écoute.",
+        "ts": 1794401768906
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] son q ? Ah il s'insulte lui mm",
+        "ts": 1794401792616
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Suis sur PC",
+        "ts": 1794402275561
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] QCM APP",
+        "ts": 1794402277408
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] //",
+        "ts": 1794402295494
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Quoi q ?",
+        "ts": 1794402320858
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Pour R",
+        "ts": 1794402348970
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] @all Identifiants d'acces admin a QcmApp",
+        "ts": 1794480931564
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Oui",
+        "ts": 1794480949492
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] http://169.58.95.104/",
+        "ts": 1794480959481
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] https://qcm-app.duckdns.org/",
+        "ts": 1794481011087
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] @all Voici notre site deployer",
+        "ts": 1794481011466
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] .me me verifie encore 72h.",
+        "ts": 1794481012723
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Oui bro suis d'accord",
+        "ts": 1794481018199
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Je cherche un moyen de nous faire acces autrement a ca",
+        "ts": 1794481018620
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] La joie 🤣🤣😭😭",
+        "ts": 1794481032816
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Mot depasse admin",
+        "ts": 1794481034511
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] Y'a pas la sauvegarde",
+        "ts": 1794481037060
+      },
+      {
+        "role": "user",
+        "contenu": "[Elysée] J'ai bien work ca le tour ci ouvre sur PC tu vas voir ca free nhor",
+        "ts": 1794481043753
+      }
+    ],
+    "251685536538662@lid": [
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Si ton boot like encore mes statuts je t'étrangler",
+        "ts": 1794402499905
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Donc va déjà régler ça",
+        "ts": 1794402545930
+      },
+      {
+        "role": "user",
+        "contenu": "[MOSTWANTED 😪🫥] dis a Sandra que tu blaguais 😭🥹",
+        "ts": 1794402591723
+      },
+      {
+        "role": "bot",
+        "contenu": "Ah, La Qatanguaise ! Je vois que ça chauffe ici deh ! \n\nFaut caler ton cœur oh, je ne vais étrangler personne. C'est juste mon créateur MOSTWANTED 😪🫥 qui est dedans avec ses histoires, il m'a dit de te dire que tu blaguais même si toi-même tu sais que tu ne blaguais pas forcément ! \n\nEn tout cas, je retiens ton nom : La Qatanguaise. Bienvenue dans ma mémoire ! Qu'est-ce qui se passe encore entre vous deux là-bas ? Je t'écoute.",
+        "ts": 1794402591723
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Je vais te faire quelque chose Tandji attends moi demain",
+        "ts": 1794402668963
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Attends demain éeee",
+        "ts": 1794402819240
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Tu as pris ton permis ?",
+        "ts": 1794480971809
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Tu vas payer 25 000f attends bien",
+        "ts": 1794480972949
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Nope😂",
+        "ts": 1794480974850
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] On a dit 25k",
+        "ts": 1794480975514
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Délégation régionale",
+        "ts": 1794480977195
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Cherche déjà l'argent",
+        "ts": 1794480987299
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Ça va rester là-bas",
+        "ts": 1794480989108
+      }
+    ],
+    "120363417204576981@g.us": [
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] 10.000",
+        "ts": 1794402714912
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Fumi indienne disponible \nTema la qualité de la perruque 🥹☺️",
+        "ts": 1794402754877
+      },
+      {
+        "role": "user",
+        "contenu": "[La Qatanguaise] Postiche disponible ☺️",
+        "ts": 1794402784859
+      }
+    ],
+    "120363413340059167@g.us": [
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🚨🔥 *QUANTITÉ LIMITÉE : 03 PIÈCES DISPONIBLES !* 🔥🚨\n\n💻 *HP ELITEBOOK 840 G5 – CORE i5 8ᵉ GÉNÉRATION*\n\n⚡ *5 BONNES RAISONS DE CHOISIR CETTE MACHINE :*\n\n✅ *Performance* : Processeur Core i5 puissant et fluide.\n✅ *Rapidité* : SSD de 256 Go pour un démarrage rapide et une meilleure réactivité.\n✅ *Multitâche* : 8 Go de RAM pour travailler sur plusieurs applications.\n✅ *Confort* : Écran Full HD de 14 pouces et clavier rétroéclairé.\n✅ *Mobilité* : Design élégant, compact et batterie d'origine.\n\n💰 *165.000 FCFA* — SSD 256 Go + RAM 8 Go\n\n🎁 *175.000 FCFA* — SSD 256 Go + RAM 8 Go + Disque dur externe 500 Go offert.\n\n🎁 *BONUS DE RECOMMANDATION : Reçois au minimum 5.000 FCFA pour toute recommandation d'un client ou une connaissance qui achète cette machine.*\n\n⚠️ *_SEULEMENT 03 PIÈCES DISPONIBLES !*",
+        "ts": 1794480931559
+      },
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🚨🔥 *DERNIÈRE PIÈCE DISPONIBLE !* 🔥🚨\n\n💻 *HP ELITEBOOK 840 G5 / G6 – CORE i5 TACTILE*\n\n⚙️ Processeur : Core i5 jusqu'à 3,9 GHz\n🧠 RAM : 8 Go\n💾 SSD : 256 Go\n🖥️ Écran : 14\" FHD Tactile\n🔋 Batterie d'origine\n✨ Ultra Slim – Prêt à l'emploi\n\n💰 *PRIX :*\n\n🎁 *165.000 FCFA* — 256 Go SSD / 8 Go RAM\n\n🎁 *175.000 FCFA* — 256 Go SSD / 8 Go RAM + Disque dur externe 500 Go 🎁\n\n🎁 *BONUS DE RECOMMANDATION : Reçois au minimum 5.000 FCFA pour toute recommandation d'un client ou une connaissance qui achète cette machine.*\n\n⚠️ *_UNE SEULE PIÈCE RESTANTE !_*",
+        "ts": 1794480931559
+      },
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🔥💻 *DELL PRECISION 7520 – CORE i7 7ᵉ GÉNÉRATION* 🔥\n\n🚀 *Une véritable station de travail pour les professionnels et les passionnés de performance !*\n\n✅ Processeur : Intel Core i7, jusqu’à 4,2 GHz\n✅ 8 threads\n✅ Carte graphique dédiée : NVIDIA Quadro M1200 – 4 Go GDDR5\n✅ RAM : 16 Go\n✅ Stockage : 512 Go SSD\n✅ Écran : 15,6 pouces Full HD\n✅ Batterie d’origine 🔋\n✅ État : 10/10\n✅ Prêt à l’emploi\n\n💰 *PRIX : 260.000 FCFA* 🔥\n\n🎁 *BONUS RECOMMANDATION :* Recommande un client qui achète cet ordinateur et reçois *5.000 FCFA* !\n\n⚠️ *Une seule pièce disponible !*\n\n📩 Écris-nous en privé pour réserver ta machine.\n\n💻 *S–O Accessoires & Électronique*",
+        "ts": 1794480931559
+      },
+      {
+        "role": "user",
+        "contenu": "[Samy_Oliveur 🌚 ❤️✨] 🔥💻 *HP ELITEBOOK 745 G6 – AMD RYZEN 5 PRO* 🔥\n\n🚀 *PUISSANCE, ÉLÉGANCE ET PERFORMANCE POUR LES UTILISATEURS EXIGEANTS !*\n\n⚙️ *CARACTÉRISTIQUES TECHNIQUES :*\n\n✅ Processeur : AMD Ryzen 5 PRO 3500U\n⚡ Fréquence : 2,1 GHz jusqu’à 3,7 GHz en Turbo\n✅ Mémoire RAM : 8 Go DDR4\n✅ Stockage : 256 Go SSD NVMe ultra-rapide\n✅ Graphisme : AMD Radeon Vega 8\n✅ Écran : 14 pouces Full HD tactile\n✅ Clavier rétroéclairé ⌨️\n✅ Lecteur d’empreintes digitales 🔐\n✅ Connectivité : USB, USB-C, HDMI, Wi-Fi et Bluetooth\n✅ Système : Windows 11 Pro\n\n🎯 *IDÉAL POUR :*\n📚 Études et travaux académiques\n💻 Programmation et développement\n📊 Bureautique et multitâche\n🎨 Travaux graphiques et multimédia\n🏢 Activités professionnelles\n\n💰 *PRIX : 210.000 FCFA* 🔥\n\n🎁 *BONUS RECOMMANDATION :* Recommande un client qui achète cet ordinateur et reçois *5.000 FCFA* !\n\n📩 Écris-nous en privé pour réserver ta machine.\n\n💻 *S_O ACCESSOIRES & ÉLECTRONIQUE*",
+        "ts": 1794480931560
+      }
+    ],
+    "234033321668718@lid": [
+      {
+        "role": "user",
+        "contenu": "[Kbrl.gf] J'ai envie de dire que ma part est mieux 😭🤣🤣",
+        "ts": 1794481023757
+      },
+      {
+        "role": "user",
+        "contenu": "[Kbrl.gf] Gars on m'a lavé 😭😭",
+        "ts": 1794481025300
+      },
+      {
+        "role": "user",
+        "contenu": "[Kbrl.gf] Wait",
+        "ts": 1794481027833
+      },
+      {
+        "role": "user",
+        "contenu": "[Kbrl.gf] Tu vas youm",
+        "ts": 1794481031791
+      }
+    ]
+  },
+  "difficulte": {}
+}

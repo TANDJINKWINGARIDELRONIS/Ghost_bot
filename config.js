@@ -1,30 +1,31 @@
-require('dotenv').config();
+const path = require('path')
+const fs = require('fs')
+require('dotenv').config({ path: path.join(__dirname, '.env') })
 
-global.APIs = {
-    xteam: 'https://api.xteam.xyz',
-    dzx: 'https://api.dhamzxploit.my.id',
-    lol: 'https://api.lolhuman.xyz',
-    violetics: 'https://violetics.pw',
-    neoxr: 'https://api.neoxr.my.id',
-    zenzapis: 'https://zenzapis.xyz',
-    akuari: 'https://api.akuari.my.id',
-    akuari2: 'https://apimu.my.id',
-    nrtm: 'https://fg-nrtm.ddns.net',
-    bg: 'http://bochil.ddns.net',
-    fgmods: 'https://api-fgmods.ddns.net'
-};
-
-global.APIKeys = {
-    'https://api.xteam.xyz': 'd90a9e986e18778b',
-    'https://api.lolhuman.xyz': '85faf717d0545d14074659ad',
-    'https://api.neoxr.my.id': 'yourkey',
-    'https://violetics.pw': 'beta',
-    'https://zenzapis.xyz': 'yourkey',
-    'https://api-fgmods.ddns.net': 'fg-dylux'
-};
+// ─────────────────────────────────────────────────────────
+// OWNER DYNAMIQUE
+// Si OWNER_NUMBER est défini dans .env, on l'utilise.
+// Sinon, au démarrage du bot, index.js le remplace avec
+// le numéro réel de la session WhatsApp connectée.
+// ─────────────────────────────────────────────────────────
+const ownerFromEnv = process.env.OWNER_NUMBER ? [process.env.OWNER_NUMBER.trim()] : null
+global.owner = ownerFromEnv || [''] // Sera mis à jour dynamiquement dans index.js
+global.authorNum = null              // JID complet, rempli quand la session est ouverte
+global.mods = []
+global.prems = []
+global.packname = 'MW PHANTOM'
+global.author = 'MOSTWANTED'
+global.prefix = process.env.PREFIX || '~'
 
 module.exports = {
-    WARN_COUNT: 3,
-    APIs: global.APIs,
-    APIKeys: global.APIKeys
-};
+    SESSION_ID: process.env.SESSION_ID || 'session',
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY || process.env.API_KEY || ''
+}
+
+let file = require.resolve(__filename)
+fs.watchFile(file, () => {
+    fs.unwatchFile(file)
+    console.log(`Update ${__filename}`)
+    delete require.cache[file]
+    require(file)
+})
